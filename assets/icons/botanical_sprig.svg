@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="#2C3E2D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Central Stem -->
+  <path d="M 24 44 C 24 32, 24 16, 24 6"/>
+  <!-- Top Center Leaf -->
+  <path d="M 24 6 C 21 2, 27 2, 24 6 Z" fill="#2C3E2D" fill-opacity="0.15"/>
+  <path d="M 24 6 C 20 1, 28 1, 24 6"/>
+  <!-- Left Leaves -->
+  <path d="M 24 16 C 14 13, 12 8, 20 6 C 22 8, 23 12, 24 16 Z" fill="#2C3E2D" fill-opacity="0.2"/>
+  <path d="M 24 26 C 12 23, 10 16, 18 14 C 21 16, 23 21, 24 26 Z" fill="#2C3E2D" fill-opacity="0.2"/>
+  <path d="M 24 36 C 13 33, 11 26, 19 24 C 22 26, 23 31, 24 36 Z" fill="#2C3E2D" fill-opacity="0.2"/>
+  <!-- Right Leaves -->
+  <path d="M 24 16 C 34 13, 36 8, 28 6 C 26 8, 25 12, 24 16 Z" fill="#2C3E2D" fill-opacity="0.2"/>
+  <path d="M 24 26 C 36 23, 38 16, 30 14 C 27 16, 25 21, 24 26 Z" fill="#2C3E2D" fill-opacity="0.2"/>
+  <path d="M 24 36 C 35 33, 37 26, 29 24 C 26 26, 25 31, 24 36 Z" fill="#2C3E2D" fill-opacity="0.2"/>
+</svg>

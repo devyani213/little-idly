@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Verification screenshot artifacts (keeps git lightweight)
+research/verification/*.png
+research/verification/*.jpg
+research/verification/*.mp4

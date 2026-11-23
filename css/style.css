@@ -1,0 +1,498 @@
+/* ==========================================================================
+   LITTLE IDLY - SOUTH INDIAN PURE VEGETARIAN RESTAURANT, AL KARAMA DUBAI
+   Creative Front-End Stylesheet & Design System
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..900;1,9..144,400..900&family=Kaushan+Script&family=PT+Sans+Narrow:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Brand Palette sampled from Official Logo & Restaurant Identity */
+  --color-cream: #FBF8F2;
+  --color-cream-tint: #F5EFE6;
+  --color-beige: #F2EBE2;
+  --color-leaf-green: #2C3E2D;
+  --color-leaf-dark: #1E2D1F;
+  --color-terracotta: #B85A1F;
+  --color-vada-orange: #E08A2E;
+  --color-logo-brown: #3A1F14;
+  --color-gold: #F6C358;
+  --color-stage-dark: #101418;
+  --color-text-main: #231E1B;
+  --color-text-muted: #6B6258;
+
+  /* Typography */
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-script: 'Kaushan Script', cursive;
+  --font-hero: 'PT Sans Narrow', 'Arial Narrow', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: var(--color-text-main);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-cream);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-terracotta);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-leaf-green);
+}
+
+/* Typography Utility Classes */
+.font-display {
+  font-family: var(--font-serif);
+}
+.font-script {
+  font-family: var(--font-script);
+}
+.font-hero {
+  font-family: var(--font-hero);
+}
+
+/* Hero Slider Styles (Sambar Cafe Reference) */
+.hero-stage {
+  background-color: var(--color-stage-dark);
+}
+.hero-title {
+  font-family: var(--font-hero);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.hero-rule {
+  height: 3px;
+  background-color: #ffffff;
+  transform-origin: left center;
+}
+.hero-btn {
+  background-color: var(--color-gold);
+  color: #101418;
+  border: 2px solid var(--color-gold);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-btn:hover {
+  background-color: transparent;
+  color: var(--color-gold);
+}
+
+/* Hero Dish Isolation to allow GSAP entrance transitions without CSS animation fighting */
+.hero-dish {
+  animation: none !important;
+  will-change: transform, opacity;
+}
+
+/* Arrow controls smooth interaction */
+#hero-prev, #hero-next {
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+#hero-prev:active, #hero-next:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+/* Halftone Pattern (Retro Print Aesthetic) */
+.halftone-overlay {
+  background-image: radial-gradient(rgba(58, 31, 20, 0.15) 1.5px, transparent 1.5px);
+  background-size: 10px 10px;
+}
+
+/* Traditional Kolam Watermark Background */
+.kolam-pattern {
+  background-image: radial-gradient(circle, #2C3E2D 1px, transparent 1px),
+                    radial-gradient(circle, #2C3E2D 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
+  opacity: 0.04;
+}
+
+/* Postage Stamp Photo Frame (Mr. Spring Reference) */
+.postage-stamp-frame {
+  position: relative;
+  background: #ffffff;
+  padding: 14px 14px 22px 14px;
+  border-radius: 4px;
+  box-shadow: 0 20px 40px -10px rgba(44, 62, 45, 0.2), 0 6px 16px rgba(0, 0, 0, 0.08);
+  filter: drop-shadow(0 12px 20px rgba(0,0,0,0.15));
+}
+
+/* Pinned Paper Card (Handcrafted Scrapbook / Bulletin Style) */
+.pinned-paper-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 
+    0 24px 48px -12px rgba(16, 20, 24, 0.42),
+    0 8px 18px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.pinned-paper-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(58, 31, 20, 0.035) 1px, transparent 1px);
+  background-size: 8px 8px;
+  pointer-events-none;
+  border-radius: 6px;
+}
+.pinned-paper-card:hover {
+  box-shadow: 
+    0 32px 64px -12px rgba(16, 20, 24, 0.52),
+    0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+/* Genuine Scalloped Perforation Edge on All 4 Sides */
+.stamp-scallop-border {
+  position: relative;
+  background: #ffffff;
+  padding: 16px;
+  box-shadow: 0 15px 35px -5px rgba(35, 30, 27, 0.18), 0 5px 15px rgba(0, 0, 0, 0.08);
+  /* Perforated stamp edge using radial gradients */
+  background-image: 
+    radial-gradient(circle at 10px 0, transparent 7px, #ffffff 7.5px),
+    radial-gradient(circle at 10px 100%, transparent 7px, #ffffff 7.5px),
+    radial-gradient(circle at 0 10px, transparent 7px, #ffffff 7.5px),
+    radial-gradient(circle at 100% 10px, transparent 7px, #ffffff 7.5px);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 20px 14px, 20px 14px, 14px 20px, 14px 20px;
+  background-position: 0 0, 0 100%, 0 0, 100% 0;
+}
+
+/* Botanical Sprig Accent above stamp (Mr. Spring match) */
+.stamp-sprig {
+  position: absolute;
+  top: -18px;
+  right: 28px;
+  z-index: 25;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+
+/* Pure Vegetarian Mark */
+.veg-mark {
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #16a34a;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  flex-shrink: 0;
+}
+.veg-mark-dot {
+  width: 6.5px;
+  height: 6.5px;
+  border-radius: 50%;
+  background-color: #16a34a;
+}
+
+/* Leader Lines for 'See What's Cooking!' (Symmetrical Left & Right) */
+.leader-line {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.leader-line:hover {
+  transform: translateY(-2px);
+}
+.leader-line::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 48px;
+  height: 1.5px;
+  background: repeating-linear-gradient(to right, #B85A1F 0, #B85A1F 4px, transparent 4px, transparent 8px);
+}
+.leader-line-left::after {
+  right: -52px;
+}
+.leader-line-right::after {
+  left: -52px;
+}
+@media (max-width: 1024px) {
+  .leader-line::after {
+    display: none;
+  }
+}
+
+/* Slide-Over Cart Drawer */
+.cart-drawer {
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cart-drawer.open {
+  transform: translateX(0);
+}
+.cart-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.cart-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Floating Dish Glow & Shadow (Realistic pure food cutouts) */
+.dish-floating {
+  filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.45)) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.25));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dish-floating:hover {
+  transform: scale(1.04) translateY(-6px);
+}
+
+/* Tall Editorial Polaroid Story Cards (The House of Makeba Reference) */
+.story-photo-tall {
+  height: 500px;
+}
+@media (min-width: 640px) {
+  .story-photo-tall {
+    height: 560px;
+  }
+}
+@media (min-width: 1024px) {
+  .story-photo-tall {
+    height: 620px;
+  }
+}
+
+.polaroid-card {
+  background: #ffffff;
+  padding: 16px 16px 28px 16px;
+  box-shadow: 0 24px 50px -10px rgba(35, 30, 27, 0.28), 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.polaroid-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 32px 65px -10px rgba(35, 30, 27, 0.35), 0 16px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Subtle Steam Animation */
+@keyframes steamDrift {
+  0% { transform: translateY(0) scaleX(1); opacity: 0.4; }
+  50% { transform: translateY(-8px) scaleX(1.1); opacity: 0.8; }
+  100% { transform: translateY(-16px) scaleX(0.95); opacity: 0; }
+}
+.animate-steam {
+  animation: steamDrift 3s ease-in-out infinite;
+}
+
+/* Chef Ladle Stirring Animation */
+@keyframes ladleStir {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(4deg) translate(2px, 1px); }
+  50% { transform: rotate(0deg) translate(0px, 2px); }
+  75% { transform: rotate(-4deg) translate(-2px, 1px); }
+  100% { transform: rotate(0deg); }
+}
+.chef-stir-action {
+  transform-origin: 160px 130px;
+  animation: ladleStir 2.5s ease-in-out infinite;
+}
+
+/* Focus States for Accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--color-vada-orange);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   DYNAMIC AMBIENT MOTION & AGENCY-GRADE MICRO-INTERACTIONS
+   ========================================================================== */
+
+/* 1. Infinite Continuous Marquee Ticker */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-ticker-wrap {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marqueeScroll 28s linear infinite;
+  will-change: transform;
+}
+.marquee-ticker-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* 2. Rotating Circular Heritage Stamp Badge */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spinSlow 22s linear infinite;
+  will-change: transform;
+}
+.circular-stamp-badge {
+  position: absolute;
+  z-index: 25;
+  filter: drop-shadow(0 10px 20px rgba(44, 62, 45, 0.25));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.circular-stamp-badge:hover {
+  transform: scale(1.08) rotate(5deg);
+}
+
+/* 3. Hero Progress Bar & Slide Navigation */
+.hero-progress-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 25;
+}
+.hero-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-gold), #FFD97D);
+  transition: width 0.1s linear;
+}
+
+.hero-dot {
+  font-family: var(--font-hero);
+  letter-spacing: 0.12em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  opacity: 0.5;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+.hero-dot:hover {
+  opacity: 0.85;
+  color: #ffffff;
+}
+.hero-dot.active {
+  opacity: 1;
+  color: var(--color-gold);
+  border-bottom: 2px solid var(--color-gold);
+}
+
+/* 4. Organic Continuous Floating Motion for Food Cutouts */
+@keyframes gentleFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+@keyframes gentleFloatReverse {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+.dish-floating {
+  filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.45)) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.25));
+  animation: gentleFloat 4.2s ease-in-out infinite;
+  will-change: transform;
+}
+.dish-floating-alt {
+  filter: drop-shadow(0 24px 28px rgba(0, 0, 0, 0.45)) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.25));
+  animation: gentleFloatReverse 4.8s ease-in-out infinite;
+  will-change: transform;
+}
+.dish-floating:hover, .dish-floating-alt:hover {
+  animation-play-state: paused;
+  transform: scale(1.04) translateY(-8px);
+}
+
+/* 5. Stat Counter Card (Heritage Highlights) */
+.stat-counter-card {
+  background: #ffffff;
+  border: 1px solid rgba(224, 138, 46, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px -5px rgba(58, 31, 20, 0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.stat-counter-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-vada-orange), var(--color-gold));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.stat-counter-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-vada-orange);
+  box-shadow: 0 20px 40px -10px rgba(224, 138, 46, 0.18);
+}
+.stat-counter-card:hover::before {
+  opacity: 1;
+}
+
+/* 6. Interactive 3D Perspective Hover */
+.perspective-container {
+  perspective: 1000px;
+}
+.tilt-card {
+  transition: transform 0.25s ease-out, box-shadow 0.25s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* 7. Button Shimmer Effect */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
+  transform: rotate(25deg) translateX(-100%);
+  transition: transform 0.8s ease;
+}
+.btn-shimmer:hover::after {
+  transform: rotate(25deg) translateX(100%);
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 74px; /* Space for Mobile Fixed Action Bar */
+  }
+}
+
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

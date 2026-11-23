@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Idly | 100% Pure Vegetarian South Indian Restaurant | Al Karama, Dubai</title>
+  <meta name="description" content="Experience authentic South Indian pure vegetarian culinary heritage in Al Karama, Dubai. Steamed idlis, ghee roast dosas, crispy medu vadas and Kumbakonam degree filter coffee.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/branding/logo.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FBF8F2',
+            'cream-tint': '#F5EFE6',
+            beige: '#F2EBE2',
+            leaf: {
+              DEFAULT: '#2C3E2D',
+              dark: '#1E2D1F',
+              light: '#3E553F'
+            },
+            terracotta: {
+              DEFAULT: '#B85A1F',
+              dark: '#964817'
+            },
+            vada: {
+              DEFAULT: '#E08A2E',
+              dark: '#C77520'
+            },
+            gold: {
+              DEFAULT: '#F6C358',
+              dark: '#E2AE42'
+            },
+            logobrown: '#3A1F14',
+            stagedark: '#101418'
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            script: ['"Kaushan Script"', 'cursive'],
+            hero: ['"PT Sans Narrow"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP 3 & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-cream text-stone-900 antialiased selection:bg-vada selection:text-white">
+
+  <!-- ==========================================================================
+       1. PRELOADER CURTAIN (Gourou Reference)
+       Full-screen halftone collage that splits in the middle and slides left and right
+       ========================================================================== -->
+  <div id="preloader-curtain" class="fixed inset-0 z-50 overflow-hidden flex bg-stagedark" style="display: flex;">
+    <!-- Left Curtain Half -->
+    <div id="curtain-left" class="w-1/2 h-full relative overflow-hidden bg-cover bg-left" style="background-image: url('assets/branding/preloader_halftone.jpg');">
+      <div class="absolute inset-0 bg-stagedark/20 backdrop-blur-[0.5px]"></div>
+    </div>
+    <!-- Right Curtain Half -->
+    <div id="curtain-right" class="w-1/2 h-full relative overflow-hidden bg-cover bg-right" style="background-image: url('assets/branding/preloader_halftone.jpg');">
+      <div class="absolute inset-0 bg-stagedark/20 backdrop-blur-[0.5px]"></div>
+    </div>
+
+    <!-- Centered Logo Card & Steaming Icons -->
+    <div id="preloader-card" class="absolute inset-0 m-auto w-11/12 max-w-md h-auto p-8 rounded-2xl bg-cream/95 backdrop-blur-md shadow-2xl border border-amber-900/10 flex flex-col items-center justify-center text-center z-10 pointer-events-none self-center my-auto">
+      <!-- 100% Pure Veg Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-leaf/10 text-leaf text-xs font-semibold tracking-wider uppercase mb-5">
+        <span class="veg-mark"><span class="veg-mark-dot"></span></span>
+        <span>100% Pure Vegetarian</span>
+      </div>
+
+      <!-- Real Little Idly Logo -->
+      <img src="assets/branding/logo.png" alt="Little Idly Logo" class="h-20 w-auto object-contain mb-5 drop-shadow-sm">
+
+      <!-- Three Steaming Line Icons -->
+      <div class="flex items-center justify-center gap-6 text-terracotta my-3">
+        <div class="steaming-icon flex flex-col items-center" title="Steamed Idly">
+          <img src="assets/icons/steaming_idly.svg" alt="Steamed Idly Icon" class="w-8 h-8">
+          <span class="text-[10px] font-bold text-stone-500 uppercase tracking-widest mt-1">Idly</span>
+        </div>
+        <div class="steaming-icon flex flex-col items-center" title="Ghee Roast Dosa">
+          <img src="assets/icons/steaming_dosa.svg" alt="Ghee Dosa Icon" class="w-8 h-8">
+          <span class="text-[10px] font-bold text-stone-500 uppercase tracking-widest mt-1">Dosa</span>
+        </div>
+        <div class="steaming-icon flex flex-col items-center" title="Aromatic Sambar">
+          <img src="assets/icons/steaming_sambar.svg" alt="Sambar Icon" class="w-8 h-8">
+          <span class="text-[10px] font-bold text-stone-500 uppercase tracking-widest mt-1">Sambar</span>
+        </div>
+      </div>
+
+      <!-- Italic Serif Heritage Line -->
+      <p class="font-display italic text-stone-700 text-sm md:text-base mt-4 font-medium tracking-wide">
+        &ldquo;All the way from South India to Dubai&rdquo;
+      </p>
+
+      <div class="mt-4 flex items-center justify-center gap-1.5 text-xs text-amber-700/80 font-medium">
+        <span class="inline-block w-2 h-2 rounded-full bg-vada animate-ping"></span>
+        <span>Al Karama, Dubai</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SITE HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="sticky top-0 z-40 bg-cream/90 backdrop-blur-md border-b border-stone-200/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <img src="assets/branding/logo.png" alt="Little Idly Logo" class="h-12 w-auto object-contain group-hover:scale-105 transition-transform">
+        <div class="hidden sm:block">
+          <span class="block text-xs font-semibold tracking-widest uppercase text-terracotta">Al Karama · Dubai</span>
+          <span class="block text-[11px] text-stone-500 font-medium">100% Pure Vegetarian</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-semibold tracking-wide text-stone-700">
+        <a href="#story" class="hover:text-vada transition-colors">Our Story</a>
+        <a href="#made-fresh" class="hover:text-vada transition-colors">Craft & Ghee</a>
+        <a href="#see-whats-cooking" class="hover:text-vada transition-colors">Pillars</a>
+        <a href="#menu" class="hover:text-vada transition-colors">Menu & Prices</a>
+        <a href="#family-time" class="hover:text-vada transition-colors">Family & Kids</a>
+        <a href="#updates" class="hover:text-vada transition-colors">Latest Updates</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <!-- Order Bag Trigger -->
+        <button onclick="toggleCart()" class="relative flex items-center gap-2 px-3.5 py-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold uppercase tracking-wider transition-all" aria-label="Open Order Bag">
+          <svg class="w-4 h-4 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <span class="hidden sm:inline">Bag</span>
+          <span class="cart-count-badge hidden w-5 h-5 rounded-full bg-vada text-white text-[11px] font-bold flex items-center justify-center">0</span>
+        </button>
+
+        <!-- Direct WhatsApp Call/Order -->
+        <a href="https://wa.me/97142444359" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-leaf hover:bg-leaf-dark text-white rounded-lg text-xs font-bold uppercase tracking-wider shadow-sm transition-all">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+          <span>Order Online</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. HERO SLIDER (Sambar Cafe Reference)
+       Full-width dark stage (#101418), 4 auto-advancing slides, alternating layout,
+       letter-spaced PT Sans Narrow title, 3px rule, sharp yellow button.
+       ========================================================================== -->
+  <section id="hero" class="relative w-full min-h-[580px] md:min-h-[640px] lg:min-h-[700px] hero-stage text-white overflow-hidden flex items-center">
+    
+    <!-- Previous & Next Arrow Buttons -->
+    <button id="hero-prev" type="button" aria-label="Previous Slide" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/80 hover:bg-gold hover:text-stone-900 border border-white/20 text-white flex items-center justify-center transition-all duration-300 shadow-xl group cursor-pointer pointer-events-auto">
+      <svg class="w-5 h-5 -translate-x-0.5 group-hover:-translate-x-1 transition-transform pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button id="hero-next" type="button" aria-label="Next Slide" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/80 hover:bg-gold hover:text-stone-900 border border-white/20 text-white flex items-center justify-center transition-all duration-300 shadow-xl group cursor-pointer pointer-events-auto">
+      <svg class="w-5 h-5 translate-x-0.5 group-hover:translate-x-1 transition-transform pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <!-- Slide 1: PURE GHEE DOSA (Dish Right, Text Left) -->
+    <div class="hero-slide active w-full py-16 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center" data-reversed="false">
+      <!-- Text Left -->
+      <div class="order-2 md:order-1 flex flex-col items-start z-10">
+        <span class="text-xs font-bold tracking-[0.25em] text-gold uppercase mb-2">Signature Craft</span>
+        <h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl text-white font-bold leading-none mb-4">
+          PURE GHEE DOSA
+        </h1>
+        <div class="hero-rule w-full max-w-md mb-6"></div>
+        <p class="hero-desc text-stone-300 text-sm sm:text-base leading-relaxed max-w-md mb-8">
+          Golden crispy fermented crepe roasted with generous 100% pure desi ghee, served with heirloom coconut chutney & aromatic lentil sambar.
+        </p>
+        <a href="#menu" class="hero-btn inline-block px-7 py-3.5 text-xs font-bold uppercase rounded-none">
+          VIEW MENU &rsaquo;
+        </a>
+      </div>
+      <!-- Dish Right (Pure cut-out floating dish) -->
+      <div class="order-1 md:order-2 flex justify-center items-center">
+        <img src="assets/dishes/dosa_pure_cutout.png" alt="Pure Ghee Dosa" class="hero-dish dish-floating w-full max-w-md lg:max-w-lg object-contain">
+      </div>
+    </div>
+
+    <!-- Slide 2: STEAMED PODI IDLY (Dish Left, Text Right) -->
+    <div class="hero-slide hidden w-full py-16 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center" data-reversed="true">
+      <!-- Dish Left (Pure cut-out floating dish) -->
+      <div class="order-1 flex justify-center items-center">
+        <img src="assets/dishes/podi_pure_cutout.png" alt="Guntur Podi Idly" class="hero-dish dish-floating w-full max-w-md lg:max-w-lg object-contain">
+      </div>
+      <!-- Text Right -->
+      <div class="order-2 flex flex-col items-start md:items-end text-left md:text-right z-10">
+        <span class="text-xs font-bold tracking-[0.25em] text-gold uppercase mb-2">Andhra Spice Classic</span>
+        <h2 class="hero-title text-4xl sm:text-5xl lg:text-6xl text-white font-bold leading-none mb-4">
+          GUNTUR PODI IDLY
+        </h2>
+        <div class="hero-rule w-full max-w-md mb-6 md:origin-right"></div>
+        <p class="hero-desc text-stone-300 text-sm sm:text-base leading-relaxed max-w-md mb-8">
+          Pillow-soft steamed rice cakes tossed in fiery roasted Andhra Guntur chili podi and pure melted ghee. The ultimate South Indian comfort.
+        </p>
+        <a href="#menu" class="hero-btn inline-block px-7 py-3.5 text-xs font-bold uppercase rounded-none">
+          VIEW MENU &rsaquo;
+        </a>
+      </div>
+    </div>
+
+    <!-- Slide 3: CRISPY MEDU VADA (Dish Right, Text Left) -->
+    <div class="hero-slide hidden w-full py-16 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center" data-reversed="false">
+      <!-- Text Left -->
+      <div class="order-2 md:order-1 flex flex-col items-start z-10">
+        <span class="text-xs font-bold tracking-[0.25em] text-gold uppercase mb-2">Golden Crunch</span>
+        <h2 class="hero-title text-4xl sm:text-5xl lg:text-6xl text-white font-bold leading-none mb-4">
+          CRISPY MEDU VADA
+        </h2>
+        <div class="hero-rule w-full max-w-md mb-6"></div>
+        <p class="hero-desc text-stone-300 text-sm sm:text-base leading-relaxed max-w-md mb-8">
+          Golden-fried lentil donuts, extraordinarily crunchy outside and cloud-soft within, infused with crushed peppercorns and fresh curry leaves.
+        </p>
+        <a href="#menu" class="hero-btn inline-block px-7 py-3.5 text-xs font-bold uppercase rounded-none">
+          VIEW MENU &rsaquo;
+        </a>
+      </div>
+      <!-- Dish Right (Pure cut-out floating dish) -->
+      <div class="order-1 md:order-2 flex justify-center items-center">
+        <img src="assets/dishes/vada_pure_cutout.png" alt="Crispy Medu Vada" class="hero-dish dish-floating w-full max-w-md lg:max-w-lg object-contain">
+      </div>
+    </div>
+
+    <!-- Slide 4: VEN PONGAL & MINI TIFFIN (Dish Left, Text Right) -->
+    <div class="hero-slide hidden w-full py-16 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center" data-reversed="true">
+      <!-- Dish Left (Pure cut-out floating dish) -->
+      <div class="order-1 flex justify-center items-center">
+        <img src="assets/dishes/tiffin_pure_cutout.png" alt="Ven Pongal & Mini Tiffin" class="hero-dish dish-floating w-full max-w-md lg:max-w-lg object-contain">
+      </div>
+      <!-- Text Right -->
+      <div class="order-2 flex flex-col items-start md:items-end text-left md:text-right z-10">
+        <span class="text-xs font-bold tracking-[0.25em] text-gold uppercase mb-2">Grand Feast Platter</span>
+        <h2 class="hero-title text-4xl sm:text-5xl lg:text-6xl text-white font-bold leading-none mb-4">
+          VEN PONGAL & TIFFIN
+        </h2>
+        <div class="hero-rule w-full max-w-md mb-6 md:origin-right"></div>
+        <p class="hero-desc text-stone-300 text-sm sm:text-base leading-relaxed max-w-md mb-8">
+          Fragrant ghee-tempered rice and yellow moong dal simmered to silky perfection with whole cashews, cumin, and ginger, paired with miniature tiffins.
+        </p>
+        <a href="#menu" class="hero-btn inline-block px-7 py-3.5 text-xs font-bold uppercase rounded-none">
+          VIEW MENU &rsaquo;
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Slider Controls & Live Progress Track -->
+    <div class="hero-progress-track">
+      <div id="hero-progress-fill" class="hero-progress-fill"></div>
+    </div>
+
+    <!-- Hero Slide Number Indicator Dots -->
+    <div class="absolute bottom-5 left-0 right-0 z-20 flex items-center justify-between px-6 md:px-16 lg:px-24 max-w-7xl mx-auto">
+      <div class="flex items-center gap-4 sm:gap-6">
+        <button class="hero-dot active text-xs font-hero tracking-widest text-gold flex items-center gap-2" data-slide="0">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold"></span> 01 PURE GHEE DOSA
+        </button>
+        <button class="hero-dot text-xs font-hero tracking-widest text-stone-400 flex items-center gap-2" data-slide="1">
+          <span class="w-1.5 h-1.5 rounded-full bg-stone-500"></span> 02 PODI IDLY
+        </button>
+        <button class="hero-dot hidden sm:flex text-xs font-hero tracking-widest text-stone-400 items-center gap-2" data-slide="2">
+          <span class="w-1.5 h-1.5 rounded-full bg-stone-500"></span> 03 CRISPY VADA
+        </button>
+        <button class="hero-dot hidden sm:flex text-xs font-hero tracking-widest text-stone-400 items-center gap-2" data-slide="3">
+          <span class="w-1.5 h-1.5 rounded-full bg-stone-500"></span> 04 VEN PONGAL
+        </button>
+      </div>
+      <div class="text-[11px] font-hero tracking-widest text-stone-400 uppercase hidden md:block">
+        <span id="hero-slide-counter">01</span> / 04 &nbsp;·&nbsp; <span class="text-gold">Sambar Cafe Style</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. ESSENTIALS STRIP (Just below the hero)
+       Menu & AED prices, Directions (Google Maps), Live Open/Closed status, Tap-to-call
+       ========================================================================== -->
+  <section class="bg-amber-900/5 border-y border-stone-200/80 py-4 px-4 sm:px-6">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm">
+      
+      <!-- Menu & AED Prices Anchor -->
+      <a href="#menu" class="flex items-center gap-2 font-bold text-stone-800 hover:text-vada transition-colors">
+        <svg class="w-4 h-4 text-vada" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        <span>Full Menu & Verified AED Prices &darr;</span>
+      </a>
+
+      <!-- Verified Address & Directions -->
+      <a href="https://www.google.com/maps/search/?api=1&query=Little+Idly+Restaurant+Al+Karama+Dubai" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-stone-700 hover:text-vada transition-colors">
+        <svg class="w-4 h-4 text-leaf" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <span>Al Karama, Dubai <span class="hidden md:inline text-stone-500 font-normal">(Near ADCB Metro Gate 1)</span> &rsaquo;</span>
+      </a>
+
+      <!-- Live Open/Closed Status (Dubai Time UTC+4) -->
+      <div class="flex items-center gap-2 text-stone-800 font-semibold bg-white px-3 py-1.5 rounded-full border border-stone-200 shadow-sm">
+        <span id="live-status-dot" class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span id="live-status-text">Open Now · Closes 11:30 PM</span>
+      </div>
+
+      <!-- Tap to Call -->
+      <a href="tel:+97142444359" class="flex items-center gap-2 font-bold text-leaf hover:text-leaf-dark transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        <span>+971 4 244 4359</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INFINITE CONTINUOUS MARQUEE TICKER (Awwwards / Agency Aesthetic)
+       Continuous smooth horizontal marquee showcasing Little Idly's verified pillars
+       ========================================================================== -->
+  <section class="bg-leaf text-cream py-3.5 border-y border-amber-900/30 overflow-hidden relative select-none">
+    <div class="marquee-ticker-wrap flex">
+      <div class="marquee-track items-center text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-cream/90 flex gap-8">
+        <span class="flex items-center gap-3"><span class="text-gold text-base">✦</span> 100% PURE VEGETARIAN</span>
+        <span class="flex items-center gap-3"><span class="text-vada text-base">✦</span> 14-HOUR NATURAL FERMENTATION</span>
+        <span class="flex items-center gap-3"><span class="text-gold text-base">✦</span> 100% PURE DESI COW GHEE</span>
+        <span class="flex items-center gap-3"><span class="text-vada text-base">✦</span> ZERO ARTIFICIAL SODA OR CHEMICALS</span>
+        <span class="flex items-center gap-3"><span class="text-gold text-base">✦</span> HEIRLOOM SOUTH INDIAN SPICE BLENDS</span>
+        <span class="flex items-center gap-3"><span class="text-vada text-base">✦</span> KUMBAKONAM DEGREE FILTER COFFEE</span>
+        <span class="flex items-center gap-3"><span class="text-gold text-base">✦</span> AL KARAMA, DUBAI · EST. 2023</span>
+        <!-- Continuous seamless loop clone -->
+        <span class="flex items-center gap-3"><span class="text-gold text-base">✦</span> 100% PURE VEGETARIAN</span>
+        <span class="flex items-center gap-3"><span class="text-vada text-base">✦</span> 14-HOUR NATURAL FERMENTATION</span>
+        <span class="flex items-center gap-3"><span class="text-gold text-base">✦</span> 100% PURE DESI COW GHEE</span>
+        <span class="flex items-center gap-3"><span class="text-vada text-base">✦</span> ZERO ARTIFICIAL SODA OR CHEMICALS</span>
+        <span class="flex items-center gap-3"><span class="text-gold text-base">✦</span> HEIRLOOM SOUTH INDIAN SPICE BLENDS</span>
+        <span class="flex items-center gap-3"><span class="text-vada text-base">✦</span> KUMBAKONAM DEGREE FILTER COFFEE</span>
+        <span class="flex items-center gap-3"><span class="text-gold text-base">✦</span> AL KARAMA, DUBAI · EST. 2023</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. STORY SECTION (Mr. Spring Hero 1 & House of Makeba Editorial Reference)
+       Small bold "Welcome Home to", huge bold "Authentic", brush-script "South Indian"
+       in vada-orange on same line as bold "Flavours!", solid orange button,
+       tilted postage-stamp-edge photo frames with botanical sprig, skyline in background.
+       ========================================================================== -->
+  <section id="story" class="relative py-20 lg:py-28 overflow-hidden bg-cream">
+    
+    <!-- Floating Rotating Circular Heritage Seal -->
+    <div class="circular-stamp-badge right-6 sm:right-16 -top-12 md:-top-16 w-28 h-28 sm:w-36 sm:h-36 pointer-events-none hidden sm:block">
+      <div class="relative w-full h-full flex items-center justify-center">
+        <svg class="w-full h-full animate-spin-slow" viewBox="0 0 160 160">
+          <defs>
+            <path id="circlePath" d="M 80, 80 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0" />
+          </defs>
+          <text font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700" letter-spacing="2.2" fill="#2C3E2D">
+            <textPath href="#circlePath" startOffset="0%">
+              ★ 100% PURE VEGETARIAN · AL KARAMA DUBAI · EST. 2023 ·
+            </textPath>
+          </text>
+        </svg>
+        <!-- Center Badge Icon -->
+        <div class="absolute inset-0 m-auto w-12 h-12 rounded-full bg-cream shadow-md border-2 border-vada/30 flex items-center justify-center p-2">
+          <img src="assets/branding/logo.png" alt="Little Idly Seal" class="w-full h-auto object-contain">
+        </div>
+      </div>
+    </div>
+
+    <!-- Subtle Architectural Skyline Silhouette in Background -->
+    <div class="absolute inset-x-0 bottom-0 pointer-events-none z-0 opacity-40">
+      <img src="assets/branding/dubai_skyline.svg" alt="Dubai & South India Skyline" class="w-full object-cover">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left Column: Story Content -->
+      <div id="story-content" class="lg:col-span-7 flex flex-col items-start">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-leaf/10 text-leaf text-xs font-bold uppercase tracking-wider mb-4">
+          <span class="veg-mark"><span class="veg-mark-dot"></span></span>
+          <span>Flavors & Stories of Al Karama</span>
+        </div>
+        <span class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-stone-500 mb-2">
+          Welcome Home to
+        </span>
+        <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-leaf leading-tight tracking-tight mb-6">
+          Authentic <span class="font-script font-normal text-vada text-4xl sm:text-5xl lg:text-6xl inline-block -rotate-1">South Indian</span> Flavours!
+        </h2>
+        <p class="text-stone-700 text-base sm:text-lg leading-relaxed mb-5 font-normal">
+          Established in 2023, Little Idly was born from a passion for bringing genuine South Indian vegetarian culinary heritage to Dubai. Nestled in the bustling heart of Al Karama, we serve slow-steamed idlys, crispy ghee roast dosas, and fragrant filter coffee crafted with home-style devotion.
+        </p>
+        <p class="text-stone-600 text-sm sm:text-base leading-relaxed mb-8">
+          Every grain is naturally fermented for 14 hours, every drop of ghee is 100% pure desi cow ghee, and every batch of sambar is simmered with freshly ground heirloom spices. No artificial shortcuts, no compromises — just timeless culinary warmth.
+        </p>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="#menu" class="inline-flex items-center gap-2 px-8 py-4 bg-vada hover:bg-vada-dark text-white font-bold text-xs uppercase tracking-widest rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+            <span>EXPLORE OUR STORY</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+          <div class="flex items-center gap-3 text-stone-500 text-xs font-semibold pl-2">
+            <span class="w-2 h-2 rounded-full bg-leaf"></span>
+            <span>Est. 2023 · Al Karama, Dubai</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Overlapping Scalloped Postage Stamp Photo Frames -->
+      <div class="lg:col-span-5 flex justify-center items-center py-6">
+        <div id="story-stamp-frame" class="relative group cursor-pointer max-w-sm sm:max-w-md">
+          
+          <!-- Botanical Sprig Icon on Top -->
+          <div class="stamp-sprig">
+            <img src="assets/icons/botanical_sprig.svg" alt="Botanical Leaf" class="w-9 h-9">
+          </div>
+
+          <!-- Back Stamp (Rotated left) -->
+          <div class="absolute -top-6 -left-6 w-52 sm:w-60 -rotate-6 transition-transform duration-500 group-hover:-rotate-8 group-hover:-translate-x-2">
+            <div class="postage-stamp-frame stamp-scallop-border p-2 bg-white">
+              <img src="assets/branding/restaurant_dining.png" alt="Little Idly Dining Ambiance" class="w-full h-44 sm:h-52 object-cover rounded">
+              <div class="mt-2 flex items-center justify-between text-[10px] text-stone-500 font-bold px-1">
+                <span>WARM AMBIANCE</span>
+                <span class="text-terracotta">AL KARAMA</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Front Stamp Frame with Scalloped Edge -->
+          <div class="relative z-10 w-64 sm:w-72 rotate-3 transition-transform duration-500 group-hover:rotate-0">
+            <div class="postage-stamp-frame stamp-scallop-border p-3 bg-white">
+              <div class="relative overflow-hidden rounded">
+                <img src="assets/branding/restaurant_interior.jpg" alt="Little Idly Restaurant Dining in Al Karama" class="w-full h-64 sm:h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 text-white">
+                  <span class="block font-display font-bold text-sm">Little Idly Karama Dining</span>
+                  <span class="block text-xs text-stone-300">Al Blouki Building 105, Dubai</span>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center justify-between text-[11px] text-stone-600 font-bold px-1">
+                <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> EST. 2023</span>
+                <span class="tracking-widest uppercase text-terracotta">100% PURE VEG</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Animated Heritage Metrics Strip -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 pt-10 border-t border-stone-200/80 relative z-10">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        
+        <!-- Metric 1: 14 Hours Fermentation -->
+        <div class="stat-counter-card p-5 sm:p-6 text-center">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-leaf mb-2 flex items-center justify-center">
+            <span class="counter-val" data-target="14">14</span>
+            <span class="text-vada text-2xl sm:text-3xl font-bold ml-1">h</span>
+          </div>
+          <span class="block text-xs font-bold uppercase tracking-wider text-stone-800 mb-1">Slow Fermentation</span>
+          <span class="block text-[11px] text-stone-500">Zero baking soda or chemicals</span>
+        </div>
+
+        <!-- Metric 2: 100% Desi Cow Ghee -->
+        <div class="stat-counter-card p-5 sm:p-6 text-center">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-leaf mb-2 flex items-center justify-center">
+            <span class="counter-val" data-target="100">100</span>
+            <span class="text-gold text-2xl sm:text-3xl font-bold ml-1">%</span>
+          </div>
+          <span class="block text-xs font-bold uppercase tracking-wider text-stone-800 mb-1">Pure Desi Cow Ghee</span>
+          <span class="block text-[11px] text-stone-500">Heirloom golden aroma</span>
+        </div>
+
+        <!-- Metric 3: 34+ Authentic Dishes -->
+        <div class="stat-counter-card p-5 sm:p-6 text-center">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-leaf mb-2 flex items-center justify-center">
+            <span class="counter-val" data-target="34">34</span>
+            <span class="text-vada text-2xl sm:text-3xl font-bold ml-1">+</span>
+          </div>
+          <span class="block text-xs font-bold uppercase tracking-wider text-stone-800 mb-1">Pure Veg Dishes</span>
+          <span class="block text-[11px] text-stone-500">Verified Karama menu items</span>
+        </div>
+
+        <!-- Metric 4: 4.8★ Google Rating -->
+        <div class="stat-counter-card p-5 sm:p-6 text-center">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-display font-black text-leaf mb-2 flex items-center justify-center">
+            <span class="counter-val" data-target="4.8" data-decimal="1">4.8</span>
+            <span class="text-amber-500 text-2xl sm:text-3xl font-bold ml-1">★</span>
+          </div>
+          <span class="block text-xs font-bold uppercase tracking-wider text-stone-800 mb-1">Karama Family Rated</span>
+          <span class="block text-[11px] text-stone-500">Google Verified Reviews</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. "SOUTH INDIAN CUISINE MADE FRESH DAILY" (Mr. Spring Hero 2 Match)
+       Dark-green band (#2C3E2D), seamless torn-paper top & bottom edges,
+       2 overlapping scalloped stamp photos with botanical sprig + official chef mascot,
+       right-aligned stacked headline, two buttons.
+       ========================================================================== -->
+  <section id="made-fresh" class="relative bg-leaf text-white overflow-hidden py-24">
+    <!-- Torn Paper Edge Top -->
+    <div class="absolute top-0 inset-x-0 w-full overflow-hidden leading-none z-10">
+      <img src="assets/branding/torn_paper_top.svg" alt="" class="w-full h-7 object-cover">
+    </div>
+
+    <!-- Subtle Traditional Kolam Watermark Pattern -->
+    <div class="absolute inset-0 kolam-pattern pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      
+      <!-- Left: Two Overlapping Stamp Photos + Karama Express Auto-Rickshaw -->
+      <div id="fresh-stamps-group" class="lg:col-span-5 relative flex justify-center items-center py-8">
+        
+        <!-- Botanical Leaf Accent Sprig above stamps -->
+        <div class="absolute -top-3 right-8 sm:right-12 z-30 filter drop-shadow-md">
+          <img src="assets/icons/botanical_sprig.svg" alt="" class="w-10 h-10">
+        </div>
+
+        <!-- Back Stamp (Rotated left, Mini Tiffin) -->
+        <div class="postage-stamp-frame stamp-scallop-border p-3 w-56 sm:w-68 -rotate-6 shadow-2xl border border-white/20 transition-transform duration-500 hover:-rotate-8">
+          <img src="assets/dishes/mini_tiffin.jpg" alt="South Indian Mini Tiffin" class="w-full h-52 sm:h-64 object-cover rounded">
+          <p class="mt-2 text-stone-800 text-[11px] font-bold text-center">Artisanal Morning Tiffin</p>
+        </div>
+
+        <!-- Front Stamp (Overlapping, rotated right, Pure Desi Ghee Roast Dosa) -->
+        <div class="postage-stamp-frame stamp-scallop-border p-3 w-60 sm:w-72 rotate-4 -ml-16 sm:-ml-20 mt-12 shadow-2xl z-10 border border-white/20 transition-transform duration-500 hover:rotate-1">
+          <img src="assets/dishes/ghee_roast_dosa.jpg" alt="Pure Desi Ghee Roast Tawa" class="w-full h-56 sm:h-68 object-cover rounded">
+          <p class="mt-2 text-stone-800 text-[11px] font-bold text-center">Pure Desi Ghee Roast</p>
+        </div>
+
+        <!-- Karama Express Auto-Rickshaw Line Sketch Accent (Positioned on top/upper side of images) -->
+        <div class="absolute -top-7 sm:-top-9 left-1 sm:left-3 z-20 w-32 sm:w-38 md:w-42 filter drop-shadow-xl hover:scale-105 transition-transform duration-300">
+          <img src="assets/branding/outlet_rickshaw_sketch.svg" alt="Karama Auto-Rickshaw" class="w-full h-auto object-contain">
+        </div>
+
+      </div>
+
+      <!-- Right: Right-Aligned Stacked Headline -->
+      <div id="fresh-text-group" class="lg:col-span-7 flex flex-col items-start lg:items-end text-left lg:text-right">
+        <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-none tracking-tight mb-6">
+          <span class="block">South Indian</span>
+          <span class="font-script font-normal text-gold text-4xl sm:text-5xl lg:text-6xl block my-1">cuisine</span>
+          <span class="block">Made</span>
+          <span class="font-script font-normal text-gold text-4xl sm:text-5xl lg:text-6xl inline-block mr-2">fresh</span> <span class="inline-block">Daily</span>
+        </h2>
+        <p class="text-stone-200 text-base sm:text-lg leading-relaxed max-w-xl mb-8 font-normal">
+          Every morning before dawn in Al Karama, our stone grinders begin churning naturally fermented batter. No artificial preservatives, no baking soda, no shortcuts — just 100% pure vegetarian, home-style recipes crafted with devotion and roasted in golden desi ghee.
+        </p>
+        <!-- Two Buttons -->
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="#menu" class="px-7 py-3.5 bg-leaf-dark hover:bg-black/60 border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded-lg transition-all shadow-sm">
+            Explore our menu
+          </a>
+          <button onclick="toggleCart()" class="px-7 py-3.5 bg-vada hover:bg-vada-dark text-white font-bold text-xs uppercase tracking-widest rounded-lg transition-all shadow-md">
+            Order now
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Torn Paper Edge Bottom -->
+    <div class="absolute bottom-0 inset-x-0 w-full overflow-hidden leading-none z-10">
+      <img src="assets/branding/torn_paper_bottom.svg" alt="" class="w-full h-7 object-cover">
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. "SEE WHAT'S COOKING!" (Restored Balanced Agency-Quality Layout)
+       Sparkle mark, brush script "what's", 3 category cards Left,
+       large center cluster of floating pure dishes, 3 category cards Right.
+       ========================================================================== -->
+  <section id="see-whats-cooking" class="py-24 bg-cream relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <!-- Sparkle Mark Above Title -->
+      <div class="inline-flex justify-center mb-3 text-vada">
+        <img src="assets/icons/sparkle.svg" alt="" class="w-8 h-8">
+      </div>
+
+      <!-- Heading -->
+      <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-leaf tracking-tight mb-4">
+        See <span class="font-script font-normal text-vada">what's</span> cooking!
+      </h2>
+      <p class="text-stone-600 text-sm sm:text-base max-w-xl mx-auto leading-relaxed mb-16 font-normal">
+        From steaming hot idlis to sizzling golden dosas, explore the culinary pillars of Little Idly. Tap any category to filter the live menu below.
+      </p>
+
+      <!-- Center Cluster with Symmetrical Left & Right Category Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left 3 Category Cards -->
+        <div class="lg:col-span-3 flex flex-col gap-6 text-left">
+          
+          <!-- Card 1: Steamed Idlys -->
+          <div onclick="filterMenuCategory('idlys')" class="cooking-left-card leader-line leader-line-left group cursor-pointer p-4 bg-white rounded-xl border border-stone-200/90 shadow-sm hover:shadow-md hover:border-vada transition-all">
+            <div class="flex items-center gap-3 mb-1.5">
+              <div class="w-9 h-9 rounded-lg bg-amber-50 text-vada flex items-center justify-center font-bold">
+                <img src="assets/icons/steaming_idly.svg" alt="" class="w-5 h-5">
+              </div>
+              <h3 class="font-display font-bold text-base text-stone-900 group-hover:text-vada transition-colors">Steamed Idlys</h3>
+            </div>
+            <p class="text-xs text-stone-500 leading-relaxed">Pillow-soft, naturally fermented & steamed to perfection.</p>
+          </div>
+
+          <!-- Card 2: Golden Vadas -->
+          <div onclick="filterMenuCategory('vadas')" class="cooking-left-card leader-line leader-line-left group cursor-pointer p-4 bg-white rounded-xl border border-stone-200/90 shadow-sm hover:shadow-md hover:border-vada transition-all">
+            <div class="flex items-center gap-3 mb-1.5">
+              <div class="w-9 h-9 rounded-lg bg-amber-50 text-vada flex items-center justify-center font-bold">
+                <img src="assets/icons/steaming_sambar.svg" alt="" class="w-5 h-5">
+              </div>
+              <h3 class="font-display font-bold text-base text-stone-900 group-hover:text-vada transition-colors">Crispy Vadas</h3>
+            </div>
+            <p class="text-xs text-stone-500 leading-relaxed">Crunchy outside, fluffy inside, spiced with curry leaves.</p>
+          </div>
+
+          <!-- Card 3: Degree Filter Kaapi -->
+          <div onclick="filterMenuCategory('coffee')" class="cooking-left-card leader-line leader-line-left group cursor-pointer p-4 bg-white rounded-xl border border-stone-200/90 shadow-sm hover:shadow-md hover:border-vada transition-all">
+            <div class="flex items-center gap-3 mb-1.5">
+              <div class="w-9 h-9 rounded-lg bg-amber-50 text-vada flex items-center justify-center font-bold">
+                <img src="assets/branding/mascot_kaapi.png" alt="" class="w-6 h-6 object-contain">
+              </div>
+              <h3 class="font-display font-bold text-base text-stone-900 group-hover:text-vada transition-colors">Degree Filter Kaapi</h3>
+            </div>
+            <p class="text-xs text-stone-500 leading-relaxed">Kumbakonam slow-dripped chicory brew with frothy milk.</p>
+          </div>
+
+        </div>
+
+        <!-- Center Dish Cluster (Pure Cutouts with Soft Shadows) -->
+        <div id="cooking-cluster" class="lg:col-span-6 relative flex items-center justify-center min-h-[380px] sm:min-h-[460px]">
+          <div class="relative w-full max-w-lg aspect-square flex items-center justify-center">
+            <!-- Background Decorative Disc -->
+            <div class="absolute w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-amber-100/60 -z-10 animate-pulse"></div>
+            
+            <!-- Authentic Karama Storefront Heritage Line Art Watermark in Center Disc -->
+            <div class="absolute -bottom-2 sm:-bottom-4 left-1/2 -translate-x-1/2 w-64 sm:w-80 opacity-25 pointer-events-none -z-10 filter blur-[0.2px]">
+              <img src="assets/branding/outlet_uncle_boat_sketch.svg" alt="" class="w-full h-auto object-contain">
+            </div>
+
+            <!-- Central Overlapping Pure Cut-Out Dishes -->
+            <img src="assets/dishes/dosa_pure_cutout.png" alt="Pure Ghee Dosa" class="dish-floating absolute w-72 sm:w-92 z-30 -rotate-6 hover:scale-110 transition-transform duration-300">
+            <img src="assets/dishes/podi_pure_cutout.png" alt="Steamed Podi Idly" class="dish-floating absolute w-56 sm:w-68 -top-4 -left-2 z-20 rotate-12 hover:scale-110 transition-transform duration-300">
+            <img src="assets/dishes/vada_pure_cutout.png" alt="Crispy Medu Vada" class="dish-floating absolute w-56 sm:w-68 -bottom-6 -right-2 z-20 -rotate-12 hover:scale-110 transition-transform duration-300">
+          </div>
+        </div>
+
+        <!-- Right 3 Category Cards -->
+        <div class="lg:col-span-3 flex flex-col gap-6 text-left">
+          
+          <!-- Card 4: Ghee Roast Dosas -->
+          <div onclick="filterMenuCategory('dosas')" class="cooking-right-card leader-line leader-line-right group cursor-pointer p-4 bg-white rounded-xl border border-stone-200/90 shadow-sm hover:shadow-md hover:border-vada transition-all">
+            <div class="flex items-center gap-3 mb-1.5">
+              <div class="w-9 h-9 rounded-lg bg-amber-50 text-vada flex items-center justify-center font-bold">
+                <img src="assets/icons/steaming_dosa.svg" alt="" class="w-5 h-5">
+              </div>
+              <h3 class="font-display font-bold text-base text-stone-900 group-hover:text-vada transition-colors">Ghee Roast Dosas</h3>
+            </div>
+            <p class="text-xs text-stone-500 leading-relaxed">Paper-thin, golden-crusted crepes roasted in desi ghee.</p>
+          </div>
+
+          <!-- Card 5: Tiffin Sets & Combos -->
+          <div onclick="filterMenuCategory('combos')" class="cooking-right-card leader-line leader-line-right group cursor-pointer p-4 bg-white rounded-xl border border-stone-200/90 shadow-sm hover:shadow-md hover:border-vada transition-all">
+            <div class="flex items-center gap-3 mb-1.5">
+              <div class="w-9 h-9 rounded-lg bg-amber-50 text-vada flex items-center justify-center font-bold">
+                <span class="text-xs font-extrabold">🍱</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-stone-900 group-hover:text-vada transition-colors">Tiffin Combos</h3>
+            </div>
+            <p class="text-xs text-stone-500 leading-relaxed">Hearty multi-dish platters with sambar & 3 chutneys.</p>
+          </div>
+
+          <!-- Card 6: Trending Sweets & Ice Cream -->
+          <div onclick="filterMenuCategory('coffee')" class="cooking-right-card leader-line leader-line-right group cursor-pointer p-4 bg-white rounded-xl border border-stone-200/90 shadow-sm hover:shadow-md hover:border-vada transition-all">
+            <div class="flex items-center gap-3 mb-1.5">
+              <div class="w-9 h-9 rounded-lg bg-amber-50 text-vada flex items-center justify-center font-bold">
+                <span class="text-xs font-extrabold">🍦</span>
+              </div>
+              <h3 class="font-display font-bold text-base text-stone-900 group-hover:text-vada transition-colors">Trending Sweets</h3>
+            </div>
+            <p class="text-xs text-stone-500 leading-relaxed">Podi mango softy ice cream & hot ghee kesari bath.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. SEARCHABLE MENU + ORDER BAG
+       Instant menu with search box and category tabs (All, Idlys, Vadas, Dosas,
+       Tiffin Combos, Filter Coffee & Sweets), veg mark on every item, AED prices.
+       ========================================================================== -->
+  <section id="menu" class="py-24 bg-cream-tint/70 border-t border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-leaf/10 text-leaf text-xs font-bold uppercase tracking-wider mb-3">
+          <span class="veg-mark"><span class="veg-mark-dot"></span></span>
+          Verified Menu & AED Prices
+        </span>
+        <h2 class="font-display font-extrabold text-4xl sm:text-5xl text-stone-900 tracking-tight mb-4">
+          Order Our Artisanal Tiffins
+        </h2>
+        <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+          Every dish is prepared fresh on order with pure desi ghee and natural fermentation. Prices verified directly from Little Idly Restaurant in Al Karama.
+        </p>
+      </div>
+
+      <!-- Search Box & Filter Controls -->
+      <div class="max-w-3xl mx-auto mb-10 space-y-5">
+        <!-- Search Input -->
+        <div class="relative">
+          <input type="text" id="menu-search-input" placeholder="Search dish name, spice, or ingredient (e.g. Podi, Ghee, Thatte, Vada)..." class="w-full pl-12 pr-4 py-3.5 rounded-xl bg-white border border-stone-300 text-stone-900 text-sm placeholder-stone-400 focus:outline-none focus:border-vada focus:ring-2 focus:ring-vada/20 shadow-sm transition-all">
+          <svg class="w-5 h-5 text-stone-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 scrollbar-none text-xs font-bold tracking-wide">
+          <button data-category="all" class="menu-category-tab px-4 py-2.5 rounded-lg bg-amber-600 text-white border border-amber-600 whitespace-nowrap shadow-sm transition-all">
+            All Items
+          </button>
+          <button data-category="idlys" class="menu-category-tab px-4 py-2.5 rounded-lg bg-white text-stone-700 border border-stone-200 hover:border-vada whitespace-nowrap transition-all">
+            Idlys
+          </button>
+          <button data-category="vadas" class="menu-category-tab px-4 py-2.5 rounded-lg bg-white text-stone-700 border border-stone-200 hover:border-vada whitespace-nowrap transition-all">
+            Vadas
+          </button>
+          <button data-category="dosas" class="menu-category-tab px-4 py-2.5 rounded-lg bg-white text-stone-700 border border-stone-200 hover:border-vada whitespace-nowrap transition-all">
+            Dosas & Uthappam
+          </button>
+          <button data-category="combos" class="menu-category-tab px-4 py-2.5 rounded-lg bg-white text-stone-700 border border-stone-200 hover:border-vada whitespace-nowrap transition-all">
+            Tiffin Combos
+          </button>
+          <button data-category="coffee" class="menu-category-tab px-4 py-2.5 rounded-lg bg-white text-stone-700 border border-stone-200 hover:border-vada whitespace-nowrap transition-all">
+            Filter Coffee & Sweets
+          </button>
+        </div>
+
+        <div class="flex items-center justify-between text-xs text-stone-500 px-1">
+          <span id="menu-count" class="font-semibold text-stone-700">34 Dishes</span>
+          <span>All prices in UAE Dirhams (AED)</span>
+        </div>
+      </div>
+
+      <!-- Menu Items Dynamic Grid -->
+      <div id="menu-items-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Rendered dynamically by js/app.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. "GATHER 'ROUND, IT'S FAMILY TIME!" (Mr. Spring Section 3 Reference - Rich & Full)
+       Centered headline with green button, Mascot & Reviews on Left,
+       Kids' Zero-Spice Visual Spread in Center, Feast Platter & Values on Right.
+       ========================================================================== -->
+  <section id="family-time" class="py-24 bg-cream relative overflow-hidden">
+    <!-- Faint Skyline Behind -->
+    <div class="absolute inset-x-0 top-6 pointer-events-none opacity-25 -z-0">
+      <img src="assets/branding/dubai_skyline.svg" alt="" class="w-full object-cover">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Headline & Button -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-leaf/10 text-leaf text-xs font-bold tracking-widest uppercase mb-3">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          100% Mild &amp; Zero-Spice · Family Dining
+        </span>
+        <h2 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-leaf tracking-tight mb-4">
+          Gather &lsquo;round, it&rsquo;s family time!
+        </h2>
+        <p class="text-stone-600 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+          South Indian dining is meant to be shared across generations. From grandparents craving traditional slow-dripped kaapi to toddlers who adore miniature ghee button idlis, our Karama dining room is built for whole-family comfort.
+        </p>
+        <button onclick="toggleCart()" class="inline-flex items-center gap-2 px-8 py-3.5 bg-leaf hover:bg-leaf-dark text-white font-bold text-xs uppercase tracking-widest rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+          <span>ORDER FOR THE FAMILY</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </div>
+
+      <!-- Rich 3-Column Family Showcase Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-4">
+        
+        <!-- Left Column (4 cols): Mascot Trio + Real Family Testimonial -->
+        <div id="family-mascot" class="lg:col-span-4 flex flex-col justify-between space-y-6">
+          <!-- Mascot Trio Card -->
+          <div class="bg-white rounded-2xl p-6 border border-stone-200/90 shadow-sm flex flex-col items-center text-center">
+            <img src="assets/branding/mascot_trio.png" alt="Little Idly Mascots" class="w-52 sm:w-60 h-auto object-contain drop-shadow-md mb-4 hover:scale-105 transition-transform duration-300">
+            <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-vada bg-amber-50 px-3 py-1 rounded-full mb-2">
+              Little Foodies Welcome
+            </span>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              Wholesome South Indian tiffins made with pure desi ghee and natural fermentation — gentle on tiny tummies.
+            </p>
+          </div>
+
+          <!-- Family Review Card -->
+          <div class="bg-white/95 rounded-2xl p-6 border border-stone-200/90 shadow-sm relative overflow-hidden">
+            <div class="flex items-center gap-1 text-amber-500 mb-2">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span class="text-xs text-stone-500 font-bold ml-1.5">5.0 Karama Family Review</span>
+            </div>
+            <p class="text-xs text-stone-700 italic leading-relaxed mb-3">
+              &ldquo;Our weekend family ritual in Dubai! The kids devour the mini ghee button idlis and cone dosa before we even sit down. Wholesome, clean, and zero spice worries.&rdquo;
+            </p>
+            <div class="flex items-center justify-between text-[11px] text-stone-500 font-semibold border-t border-stone-100 pt-2">
+              <span class="font-bold text-stone-800">The Sharma Family</span>
+              <span>Al Karama Regulars</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center Column (4 cols): Kids' Zero-Spice Food Cards Spread -->
+        <div class="lg:col-span-4 flex flex-col justify-between space-y-4">
+          <div class="text-left mb-1">
+            <span class="text-[11px] font-bold tracking-widest uppercase text-terracotta block">Toddler &amp; Kid Favorites</span>
+            <h3 class="font-display font-bold text-xl text-stone-900">Zero-Spice Menu Corner</h3>
+          </div>
+
+          <!-- Item 1: Mini Ghee Button Idlis -->
+          <div class="group bg-white rounded-xl p-3.5 border border-stone-200/90 shadow-sm hover:shadow-md transition-all flex items-center gap-3.5">
+            <img src="assets/dishes/little_idly_mini.jpg" alt="Mini Button Idlis" class="w-16 h-16 rounded-lg object-cover flex-shrink-0 group-hover:scale-105 transition-transform">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between gap-1 mb-0.5">
+                <h4 class="font-display font-bold text-sm text-stone-900 group-hover:text-vada transition-colors truncate">Mini Ghee Button Idlis</h4>
+                <span class="font-bold text-xs text-amber-700 whitespace-nowrap">9 AED</span>
+              </div>
+              <p class="text-[11px] text-stone-500 leading-snug line-clamp-2">14 bite-sized fluffy button idlis served floating in melted pure desi ghee.</p>
+            </div>
+          </div>
+
+          <!-- Item 2: Crispy Honey Cone Dosa -->
+          <div class="group bg-white rounded-xl p-3.5 border border-stone-200/90 shadow-sm hover:shadow-md transition-all flex items-center gap-3.5">
+            <img src="assets/dishes/ghee_roast_dosa.jpg" alt="Crispy Cone Dosa" class="w-16 h-16 rounded-lg object-cover flex-shrink-0 group-hover:scale-105 transition-transform">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between gap-1 mb-0.5">
+                <h4 class="font-display font-bold text-sm text-stone-900 group-hover:text-vada transition-colors truncate">Crispy Cone Dosa</h4>
+                <span class="font-bold text-xs text-amber-700 whitespace-nowrap">10 AED</span>
+              </div>
+              <p class="text-[11px] text-stone-500 leading-snug line-clamp-2">Tall golden crunchy cone roasted in butter, served with sweet jaggery dip.</p>
+            </div>
+          </div>
+
+          <!-- Item 3: Pineapple Saffron Kesari -->
+          <div class="group bg-white rounded-xl p-3.5 border border-stone-200/90 shadow-sm hover:shadow-md transition-all flex items-center gap-3.5">
+            <img src="assets/updates/top_dishes.webp" alt="Pineapple Kesari" class="w-16 h-16 rounded-lg object-cover flex-shrink-0 group-hover:scale-105 transition-transform">
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center justify-between gap-1 mb-0.5">
+                <h4 class="font-display font-bold text-sm text-stone-900 group-hover:text-vada transition-colors truncate">Pineapple Saffron Kesari</h4>
+                <span class="font-bold text-xs text-amber-700 whitespace-nowrap">8 AED</span>
+              </div>
+              <p class="text-[11px] text-stone-500 leading-snug line-clamp-2">Melt-in-mouth semolina pudding infused with pineapple, saffron &amp; cashews.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column (4 cols): Feast Platter & Family Perks Grid -->
+        <div id="family-platter" class="lg:col-span-4 flex flex-col justify-between space-y-6">
+          <!-- Floating Platter Visual -->
+          <div class="bg-amber-50/70 rounded-2xl p-6 border border-amber-200/60 shadow-sm flex flex-col items-center justify-center relative overflow-hidden">
+            <img src="assets/dishes/tiffin_pure_cutout.png" alt="Family Feast Platter" class="dish-floating w-56 sm:w-64 h-auto object-contain mb-2">
+            <h4 class="font-display font-bold text-stone-900 text-sm">Grand Sharing Thali Platters</h4>
+            <p class="text-[11px] text-stone-500 text-center mt-1">Multi-dish feasts with 3 fresh chutneys &amp; piping hot sambar.</p>
+          </div>
+
+          <!-- 4 Family Values Checklist -->
+          <div class="bg-white rounded-2xl p-5 border border-stone-200/90 shadow-sm grid grid-cols-2 gap-3 text-left">
+            <div class="flex items-start gap-2">
+              <span class="text-sm">👶</span>
+              <div>
+                <span class="block text-xs font-bold text-stone-900">Zero Chili</span>
+                <span class="block text-[10px] text-stone-500">Toddler safe</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-sm">🧈</span>
+              <div>
+                <span class="block text-xs font-bold text-stone-900">Pure Ghee</span>
+                <span class="block text-[10px] text-stone-500">100% Desi cow</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-sm">🪑</span>
+              <div>
+                <span class="block text-xs font-bold text-stone-900">High Chairs</span>
+                <span class="block text-[10px] text-stone-500">Spacious tables</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-sm">🚇</span>
+              <div>
+                <span class="block text-xs font-bold text-stone-900">ADCB Metro</span>
+                <span class="block text-[10px] text-stone-500">2-min walk Gate 1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Green Strip at Bottom (Mr. Spring Match) -->
+    <div class="w-full h-4 bg-leaf mt-16"></div>
+  </section>
+
+  <!-- ==========================================================================
+       9. UPDATES (Redesign of Little Idly's Existing "Latest Updates")
+       One large featured card (Podi Mango Ice Cream) + 2 horizontal cards.
+       ========================================================================== -->
+  <section id="updates" class="py-24 bg-cream-tint/60 border-t border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
+        <div>
+          <span class="text-xs font-bold tracking-[0.2em] uppercase text-terracotta mb-2 block">Journal & Happenings</span>
+          <h2 class="font-display font-extrabold text-4xl sm:text-5xl text-stone-900 tracking-tight">
+            Latest from Little Idly
+          </h2>
+        </div>
+        <p class="text-stone-600 text-sm max-w-md">
+          Discover seasonal culinary innovations, South Indian food traditions, and signature stories straight from our Karama kitchen.
+        </p>
+      </div>
+
+      <!-- Grid: 1 Featured Large Card (Left) + 2 Horizontal Cards (Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Large Featured Card (Podi Mango Ice Cream) -->
+        <article class="lg:col-span-7 bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+          <div class="relative h-72 sm:h-88 overflow-hidden bg-stone-100">
+            <img src="assets/updates/podi_mango_icecream.webp" alt="Introducing Podi Mango Ice Cream" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute top-4 left-4 flex gap-2">
+              <span class="px-3 py-1 bg-vada text-white text-xs font-bold rounded-md tracking-wider uppercase">New Launch</span>
+              <span class="px-3 py-1 bg-stone-900/85 backdrop-blur text-white text-xs font-bold rounded-md tracking-wider uppercase">Viral Special</span>
+            </div>
+          </div>
+          <div class="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-semibold text-stone-400 mb-2 block">August 21 · Al Karama Kitchen</span>
+              <h3 class="font-display font-bold text-2xl sm:text-3xl text-stone-900 group-hover:text-vada transition-colors mb-3 leading-snug">
+                Introducing Podi Mango Ice Cream - A Sweet & Spicy Delight
+              </h3>
+              <p class="text-stone-600 text-sm sm:text-base leading-relaxed mb-6">
+                A daring culinary fusion bringing together the velvety tropical sweetness of ripe mangoes with the savory, fiery kick of our signature stone-ground gun-powder podi. Crafted exclusively for Dubai food explorers.
+              </p>
+            </div>
+            <a href="https://www.littleidly.ae/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 font-bold text-sm text-terracotta group-hover:text-vada transition-colors">
+              <span>Read more</span>
+              <span class="text-base">&rsaquo;</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Right Column: 2 Horizontal Cards -->
+        <div class="lg:col-span-5 flex flex-col gap-6">
+          
+          <!-- Horizontal Card 1: Top Dishes -->
+          <article class="bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row group">
+            <div class="sm:w-2/5 h-48 sm:h-auto overflow-hidden bg-stone-100 flex-shrink-0">
+              <img src="assets/updates/top_dishes.webp" alt="Top Dishes You Must Try" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2 py-0.5 bg-leaf/10 text-leaf text-[11px] font-bold rounded">Food Guide</span>
+                  <span class="text-xs text-stone-400">August 17</span>
+                </div>
+                <h3 class="font-display font-bold text-base sm:text-lg text-stone-900 group-hover:text-vada transition-colors mb-2 leading-snug">
+                  Top Dishes You Must Try at Little Idly Restaurant
+                </h3>
+                <p class="text-stone-600 text-xs leading-relaxed line-clamp-2 mb-4">
+                  From Thatte Podi Idly to Mysore Masala Dosa, here are the non-negotiable must-haves on your first Karama visit.
+                </p>
+              </div>
+              <a href="https://www.littleidly.ae/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-bold text-xs text-terracotta group-hover:text-vada transition-colors">
+                <span>Read more</span>
+                <span>&rsaquo;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Horizontal Card 2: Heritage Cuisine -->
+          <article class="bg-white rounded-2xl overflow-hidden border border-stone-200/90 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col sm:flex-row group">
+            <div class="sm:w-2/5 h-48 sm:h-auto overflow-hidden bg-stone-100 flex-shrink-0">
+              <img src="assets/updates/authentic_cuisine.webp" alt="Discover Authentic South Indian Cuisine" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2 py-0.5 bg-terracotta/10 text-terracotta text-[11px] font-bold rounded">Heritage</span>
+                  <span class="text-xs text-stone-400">August 17</span>
+                </div>
+                <h3 class="font-display font-bold text-base sm:text-lg text-stone-900 group-hover:text-vada transition-colors mb-2 leading-snug">
+                  Discover Authentic South Indian Cuisine at Little Idly
+                </h3>
+                <p class="text-stone-600 text-xs leading-relaxed line-clamp-2 mb-4">
+                  Traditional slow fermentation, pure desi ghee, and recipes handed down through generations in the heart of Al Karama.
+                </p>
+              </div>
+              <a href="https://www.littleidly.ae/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 font-bold text-xs text-terracotta group-hover:text-vada transition-colors">
+                <span>Read more</span>
+                <span>&rsaquo;</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. SOCIAL STRIP & GUEST STORIES (The House of Makeba Reference Match - BIG HEIGHT)
+       "Join us on a journey of FLAVORS & STORIES"
+       Large towering portrait Polaroid frames (h-[520px] to h-[620px]),
+       culinary craft and joyful dining moments around Karama tables.
+       ========================================================================== -->
+  <section class="py-24 bg-cream relative overflow-hidden border-t border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mb-14">
+      
+      <!-- Editorial Header (House of Makeba Reference Match) -->
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-leaf tracking-tight mb-3">
+        Join us on a journey of
+      </h2>
+      <div class="flex items-center justify-center gap-4 my-2">
+        <span class="font-display font-bold tracking-[0.18em] text-3xl sm:text-4xl lg:text-5xl text-stone-800 uppercase">FLAVORS</span>
+        <span class="font-script text-vada text-4xl sm:text-5xl">&amp;</span>
+        <span class="font-display font-bold tracking-[0.18em] text-3xl sm:text-4xl lg:text-5xl text-stone-800 uppercase">STORIES</span>
+      </div>
+      <p class="text-stone-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mt-4 font-normal">
+        At Little Idly, every dish tells a story, every flavor paints a picture. From the fragrant stone-ground spices that celebrate South Indian heritage to the joyful moments shared around our tables, we invite you to experience the beauty of our culinary creations.
+      </p>
+
+      <div class="mt-4 flex items-center justify-center gap-2">
+        <a href="https://www.littleidly.ae/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-stone-900 text-white text-xs font-semibold hover:bg-vada transition-colors shadow-sm">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <span>@littleidly.ae</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Tilted Overlapping Large-Height Polaroid Showcase (House of Makeba Match) -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-6 my-8">
+      
+      <!-- Card 1: Culinary Craft / FLAVORS (Tilted Left, TALL HEIGHT) -->
+      <div class="polaroid-card w-full max-w-md -rotate-2 hover:rotate-0 z-10 cursor-pointer">
+        <div class="relative story-photo-tall overflow-hidden rounded-lg">
+          <img src="assets/branding/restaurant_interior.jpg" alt="Little Idly Karama Ambiance" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-left text-white">
+            <span class="text-xs font-bold tracking-widest uppercase text-gold block mb-1">Culinary Heritage</span>
+            <h3 class="font-display font-bold text-3xl sm:text-4xl text-white mb-2">FLAVORS</h3>
+            <p class="text-xs sm:text-sm text-stone-200 leading-relaxed font-normal">
+              14-hour stone-ground natural fermentation &amp; 100% pure desi ghee. Crafted fresh every morning in Al Karama.
+            </p>
+          </div>
+        </div>
+        <div class="mt-4 flex items-center justify-between text-xs text-stone-500 font-bold px-1">
+          <span>AL KARAMA KITCHEN</span>
+          <span class="text-terracotta">100% PURE VEG</span>
+        </div>
+      </div>
+
+      <!-- Center & Ligature Marker -->
+      <div class="hidden md:flex w-16 h-16 rounded-full bg-cream border-2 border-stone-300 items-center justify-center z-20 -mx-8 shadow-xl">
+        <span class="font-script text-vada text-3xl">&amp;</span>
+      </div>
+
+      <!-- Card 2: Shared Table Stories / STORIES (Tilted Right, TALL HEIGHT) -->
+      <div class="polaroid-card w-full max-w-md rotate-2 hover:rotate-0 z-10 cursor-pointer">
+        <div class="relative story-photo-tall overflow-hidden rounded-lg">
+          <img src="assets/branding/restaurant_dining.png" alt="Little Idly Guests Dining" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-left text-white">
+            <span class="text-xs font-bold tracking-widest uppercase text-gold block mb-1">Karama Community</span>
+            <h3 class="font-display font-bold text-3xl sm:text-4xl text-white mb-2">STORIES</h3>
+            <p class="text-xs sm:text-sm text-stone-200 leading-relaxed font-normal">
+              Moments shared around our tables across generations, where South Indian hospitality and warmth feel like home.
+            </p>
+          </div>
+        </div>
+        <div class="mt-4 flex items-center justify-between text-xs text-stone-500 font-bold px-1">
+          <span>MEMORIES AT OUR TABLES</span>
+          <span class="text-terracotta">EST. 2023</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Secondary 4-Photo Community Strip -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 mt-16 pt-12 border-t border-stone-200/60">
+      <div class="text-center mb-6">
+        <p class="text-xs font-bold tracking-widest uppercase text-terracotta">Dine · Enjoy · Share · Remember</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <div class="relative group aspect-square rounded-xl overflow-hidden bg-stone-200 shadow-sm cursor-pointer">
+          <img src="assets/dishes/ghee_roast_dosa.jpg" alt="Pure Ghee Dosa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-stone-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
+            <span class="text-xs font-bold">Ghee Roast</span>
+          </div>
+        </div>
+        <div class="relative group aspect-square rounded-xl overflow-hidden bg-stone-200 shadow-sm cursor-pointer">
+          <img src="assets/dishes/idly_set.jpg" alt="Steamed Idly Platter" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-stone-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
+            <span class="text-xs font-bold">Steamed Idlys</span>
+          </div>
+        </div>
+        <div class="relative group aspect-square rounded-xl overflow-hidden bg-stone-200 shadow-sm cursor-pointer">
+          <img src="assets/dishes/mini_tiffin.jpg" alt="Mini Tiffin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-stone-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
+            <span class="text-xs font-bold">Mini Tiffin</span>
+          </div>
+        </div>
+        <div class="relative group aspect-square rounded-xl overflow-hidden bg-stone-200 shadow-sm cursor-pointer">
+          <img src="assets/updates/podi_mango_icecream.webp" alt="Podi Mango Ice Cream" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-stone-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
+            <span class="text-xs font-bold">Podi Softy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       11. FOOTER + REPLAY INTRO
+       Logo, verified address, Maps link, phone, hours, quick links, "Replay intro".
+       ========================================================================== -->
+  <footer class="bg-logobrown text-stone-300 py-16 border-t border-amber-950/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-12">
+        
+        <!-- Brand & Mission Column -->
+        <div class="lg:col-span-4 flex flex-col items-start">
+          <img src="assets/branding/logo.png" alt="Little Idly Logo" class="h-16 w-auto object-contain mb-4 brightness-110">
+          <p class="text-stone-400 text-xs sm:text-sm leading-relaxed mb-6">
+            100% Pure Vegetarian South Indian restaurant in Al Karama, Dubai. Crafting wholesome idlis, crispy dosas, and slow-dripped Kumbakonam degree filter kaapi with traditional love.
+          </p>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-gold">
+            <span class="veg-mark"><span class="veg-mark-dot"></span></span>
+            <span>100% Pure Vegetarian Certified</span>
+          </div>
+        </div>
+
+        <!-- Verified Location & Hours -->
+        <div class="lg:col-span-5 flex flex-col space-y-3 text-xs sm:text-sm">
+          <h3 class="font-display font-bold text-base text-white mb-2 uppercase tracking-wider">Restaurant Location</h3>
+          
+          <div class="flex items-start gap-2.5 text-stone-300">
+            <svg class="w-4 h-4 text-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <p>
+              Shop no: 5, 6 & 7, Al Blouki Building 105, Plot 219-0,<br>
+              70 4C Street, Al Karama, Dubai, United Arab Emirates<br>
+              <span class="text-gold font-medium">(Near ADCB Metro Station, Gate 1)</span>
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2.5 text-stone-300 pt-1">
+            <svg class="w-4 h-4 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <p><strong class="text-white">Opening Hours:</strong> 7:00 AM – 11:30 PM Daily</p>
+          </div>
+
+          <div class="flex items-center gap-2.5 text-stone-300">
+            <svg class="w-4 h-4 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <a href="tel:+97142444359" class="hover:text-gold transition-colors font-semibold">+971 4 244 4359</a>
+          </div>
+
+          <div class="flex items-center gap-2.5 text-stone-300">
+            <svg class="w-4 h-4 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href="mailto:support@littleidly.ae" class="hover:text-gold transition-colors">support@littleidly.ae</a>
+          </div>
+        </div>
+
+        <!-- Quick Links & Replay Intro -->
+        <div class="lg:col-span-3 flex flex-col justify-between">
+          <div>
+            <h3 class="font-display font-bold text-base text-white mb-3 uppercase tracking-wider">Quick Navigation</h3>
+            <ul class="space-y-2 text-xs sm:text-sm">
+              <li><a href="#hero" class="hover:text-gold transition-colors">Home & Slider</a></li>
+              <li><a href="#story" class="hover:text-gold transition-colors">Our Heritage Story</a></li>
+              <li><a href="#menu" class="hover:text-gold transition-colors">Full Menu & AED Prices</a></li>
+              <li><a href="#family-time" class="hover:text-gold transition-colors">Kids & Family Corner</a></li>
+              <li><a href="#updates" class="hover:text-gold transition-colors">Latest Restaurant Updates</a></li>
+            </ul>
+          </div>
+
+          <!-- Replay Intro Button for Pitch Demos -->
+          <div class="pt-6">
+            <button id="replay-intro-btn" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white/10 hover:bg-gold hover:text-stone-900 text-stone-200 text-xs font-bold uppercase tracking-wider transition-all border border-white/15 shadow-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              <span>Replay Intro Curtain</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+        <p>&copy; 2026 Little Idly Restaurant. All rights reserved. Al Karama, Dubai.</p>
+        <p class="text-stone-400">Freelance Agency Redesign Pitch Demo</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       SLIDE-OVER ORDER BAG (Cart Drawer)
+       Quantity steppers, subtotal, 5% UAE VAT, Grand Total, and Send to WhatsApp
+       ========================================================================== -->
+  <div id="cart-backdrop" onclick="closeCart()" class="cart-backdrop fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"></div>
+  
+  <aside id="cart-drawer" class="cart-drawer fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-white shadow-2xl flex flex-col justify-between">
+    <!-- Drawer Header -->
+    <div class="p-5 border-b border-stone-200 flex items-center justify-between bg-stone-50">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg bg-leaf text-white flex items-center justify-center font-bold">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        </div>
+        <div>
+          <h3 class="font-display font-bold text-lg text-stone-900 leading-tight">Your Order Bag</h3>
+          <p class="text-[11px] text-stone-500">Little Idly Al Karama</p>
+        </div>
+      </div>
+      <button onclick="closeCart()" class="w-8 h-8 rounded-full bg-stone-200/80 hover:bg-stone-300 text-stone-700 flex items-center justify-center transition-colors" aria-label="Close Order Bag">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Items Scroll Area -->
+    <div id="cart-items-container" class="flex-1 overflow-y-auto p-5 space-y-3">
+      <!-- Injected by js/app.js -->
+    </div>
+
+    <!-- Drawer Footer & Totals -->
+    <div class="p-5 border-t border-stone-200 bg-stone-50 space-y-3">
+      <div class="space-y-1.5 text-xs text-stone-600">
+        <div class="flex justify-between">
+          <span>Subtotal</span>
+          <span id="cart-subtotal" class="font-bold text-stone-800">0.00 AED</span>
+        </div>
+        <div class="flex justify-between">
+          <span>UAE VAT (5%)</span>
+          <span id="cart-vat" class="font-semibold text-stone-600">0.00 AED</span>
+        </div>
+        <div class="flex justify-between text-base font-bold text-stone-900 pt-1.5 border-t border-stone-200">
+          <span class="font-display">Total</span>
+          <span id="cart-total" class="text-terracotta">0.00 AED</span>
+        </div>
+      </div>
+
+      <!-- WhatsApp Direct Order Button -->
+      <a id="whatsapp-order-btn" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center gap-2">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+        <span>Send order on WhatsApp</span>
+      </a>
+
+      <p class="text-[10px] text-center text-stone-400">
+        Opens WhatsApp with your pre-filled, formatted order summary.
+      </p>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       MOBILE FIXED ACTION BAR (Screens under 768px)
+       4 equal tap targets: Menu, Order (live count badge), Directions, Call.
+       ========================================================================== -->
+  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200 shadow-2xl py-2 px-3 flex items-center justify-around">
+    
+    <!-- 1. Menu -->
+    <a href="#menu" class="flex flex-col items-center text-stone-700 hover:text-vada transition-colors">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+      <span class="text-[10px] font-bold mt-1">Menu</span>
+    </a>
+
+    <!-- 2. Order (Live Count Badge) -->
+    <button onclick="toggleCart()" class="relative flex flex-col items-center text-stone-700 hover:text-vada transition-colors">
+      <div class="relative">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span class="cart-count-badge hidden absolute -top-1.5 -right-2.5 w-4 h-4 rounded-full bg-vada text-white text-[9px] font-bold flex items-center justify-center">0</span>
+      </div>
+      <span class="text-[10px] font-bold mt-1">Order</span>
+    </button>
+
+    <!-- 3. Directions -->
+    <a href="https://www.google.com/maps/search/?api=1&query=Little+Idly+Restaurant+Al+Karama+Dubai" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-stone-700 hover:text-vada transition-colors">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      <span class="text-[10px] font-bold mt-1">Directions</span>
+    </a>
+
+    <!-- 4. Call -->
+    <a href="tel:+97142444359" class="flex flex-col items-center text-leaf font-bold">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      <span class="text-[10px] font-bold mt-1">Call</span>
+    </a>
+
+  </nav>
+
+  <!-- Menu Data & Logic -->
+  <script src="js/menu-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

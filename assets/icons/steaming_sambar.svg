@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Steaming Sambar: traditional round brass katori bowl with steam -->
+  <path d="M8 24 C8 35 15 41 24 41 C33 41 40 35 40 24 L8 24 Z" />
+  <ellipse cx="24" cy="24" rx="16" ry="4" />
+  <path d="M14 41 L10 44 L38 44 L34 41" />
+  <!-- Steam lines -->
+  <path d="M19 16 C17 12 21 10 19 6" />
+  <path d="M24 14 C22 10 26 8 24 4" />
+  <path d="M29 16 C27 12 31 10 29 6" />
+</svg>

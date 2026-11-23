@@ -1,0 +1,186 @@
+svg_content = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 440" width="100%" height="100%" fill="none">
+  <defs>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#1E2D1F" flood-opacity="0.22" />
+    </filter>
+    <linearGradient id="boatWood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="60%" stop-color="#FAF5EE" />
+      <stop offset="100%" stop-color="#F2E8DC" />
+    </linearGradient>
+    <linearGradient id="waveOrange" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E08A2E" />
+      <stop offset="100%" stop-color="#C77520" />
+    </linearGradient>
+    <linearGradient id="waveGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2C3E2D" />
+      <stop offset="100%" stop-color="#1E2D1F" />
+    </linearGradient>
+    <!-- Steam Drift Filter -->
+    <linearGradient id="steamGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#E08A2E" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#softGlow)">
+    
+    <!-- Background Organic Brand Decal Swirls (Matching Little Idly Storefront Glass) -->
+    <!-- Orange Accent Wave behind prow -->
+    <path d="M 110 300 C 80 250, 100 180, 145 190 C 180 198, 185 260, 165 320 Z" fill="url(#waveOrange)" opacity="0.95" />
+    
+    <!-- Flowing Deep Leaf Green River / Harbor Wave below Boat -->
+    <path d="M 50 360 C 120 320, 200 390, 310 345 C 400 310, 460 370, 520 340 C 530 375, 470 410, 370 415 C 240 420, 140 405, 50 360 Z" fill="url(#waveGreen)" opacity="0.98" />
+
+    <!-- Traditional Kerala Vallam (Country Boat) Hull -->
+    <path d="M 80 230 C 105 255, 125 305, 155 328 C 245 362, 370 355, 480 305 C 498 296, 480 286, 445 296 C 345 325, 235 320, 168 290 C 140 275, 122 235, 95 212 C 86 204, 78 212, 80 230 Z" 
+          fill="url(#boatWood)" stroke="#1E2D1F" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" />
+
+    <!-- Swan Head / Chundan Prow Filigree Ornament -->
+    <path d="M 95 212 C 78 190, 98 168, 114 184 C 124 194, 118 212, 106 218" 
+          stroke="#1E2D1F" stroke-width="4.5" stroke-linecap="round" />
+    <circle cx="102" cy="186" r="4" fill="#E08A2E" stroke="#1E2D1F" stroke-width="2" />
+
+    <!-- Planks / Wood Rib Lines on Boat Hull -->
+    <path d="M 152 308 C 238 340, 360 334, 460 295" stroke="#1E2D1F" stroke-width="3" stroke-dasharray="8,5" />
+    <path d="M 172 322 C 255 350, 345 344, 430 315" stroke="#1E2D1F" stroke-width="2.5" />
+
+    <!-- Thatched Canopy / Kettuvallam Woven Roof (Right Side of Boat) -->
+    <path d="M 350 310 C 350 240, 400 220, 460 242 C 478 248, 488 270, 480 305" 
+          fill="#FAF6EE" stroke="#1E2D1F" stroke-width="4.5" stroke-linejoin="round" />
+    <!-- Woven rib arches -->
+    <path d="M 378 302 C 378 252, 418 240, 455 258" stroke="#1E2D1F" stroke-width="3" stroke-linecap="round" />
+    <path d="M 405 298 C 405 264, 435 256, 468 274" stroke="#1E2D1F" stroke-width="2.5" />
+    <!-- Small arched entry window -->
+    <path d="M 400 300 C 400 280, 422 280, 422 300" fill="#1E2D1F" />
+
+    <!-- Decorative Brass Studs along boat rim -->
+    <circle cx="215" cy="326" r="4" fill="#F6C358" stroke="#1E2D1F" stroke-width="2" />
+    <circle cx="260" cy="334" r="4" fill="#F6C358" stroke="#1E2D1F" stroke-width="2" />
+    <circle cx="305" cy="332" r="4" fill="#F6C358" stroke="#1E2D1F" stroke-width="2" />
+    <circle cx="350" cy="322" r="4" fill="#F6C358" stroke="#1E2D1F" stroke-width="2" />
+    <circle cx="395" cy="310" r="4" fill="#F6C358" stroke="#1E2D1F" stroke-width="2" />
+
+    <!-- Steaming Pyramid of Fresh White Idlis / Tiffin Pots -->
+    <g stroke="#1E2D1F" stroke-width="3.5" fill="#FFFFFF">
+      <!-- Bottom Layer -->
+      <circle cx="205" cy="292" r="18" />
+      <circle cx="238" cy="300" r="18" />
+      <circle cx="272" cy="302" r="18" />
+      <circle cx="306" cy="298" r="18" />
+      <circle cx="340" cy="292" r="18" />
+
+      <!-- Second Layer -->
+      <circle cx="222" cy="270" r="18" />
+      <circle cx="255" cy="274" r="18" />
+      <circle cx="288" cy="274" r="18" />
+      <circle cx="322" cy="268" r="18" />
+
+      <!-- Third Layer -->
+      <circle cx="238" cy="248" r="17" />
+      <circle cx="272" cy="250" r="17" />
+      <circle cx="306" cy="246" r="17" />
+
+      <!-- Top Golden Crown Idly / Kesari -->
+      <circle cx="255" cy="225" r="16" />
+      <circle cx="288" cy="225" r="16" />
+      <circle cx="272" cy="204" r="16" fill="#F6C358" />
+    </g>
+
+    <!-- Rising Steaming Vapor from Idlis -->
+    <path d="M 260 190 C 255 175, 265 165, 260 150" stroke="#E08A2E" stroke-width="3" stroke-linecap="round" stroke-dasharray="4,4" opacity="0.8" />
+    <path d="M 275 186 C 270 170, 280 160, 275 145" stroke="#E08A2E" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="5,4" opacity="0.9" />
+    <path d="M 290 190 C 285 175, 295 165, 290 150" stroke="#E08A2E" stroke-width="3" stroke-linecap="round" stroke-dasharray="4,4" opacity="0.8" />
+
+    <!-- SOUTH INDIAN UNCLE (Traditional Navigator & Master Cook) -->
+    <g id="uncle-character">
+      <!-- Long Wooden Oar / Steering Paddle -->
+      <line x1="310" y1="55" x2="185" y2="390" stroke="#B85A1F" stroke-width="7" stroke-linecap="round" />
+      <!-- Paddle Blade in Water -->
+      <path d="M 185 365 L 168 412 L 198 395 Z" fill="#B85A1F" stroke="#1E2D1F" stroke-width="2.5" />
+
+      <!-- Folded White Dhoti / Mundu with Golden Kasavu Border -->
+      <path d="M 276 225 L 270 305 L 290 305 L 296 225 Z" fill="#FAF8F5" stroke="#1E2D1F" stroke-width="4" stroke-linejoin="round" />
+      <path d="M 296 225 L 302 300 L 320 300 L 312 225 Z" fill="#FAF8F5" stroke="#1E2D1F" stroke-width="4" stroke-linejoin="round" />
+      <!-- Gold Kasavu Zari Borders -->
+      <line x1="270" y1="294" x2="290" y2="294" stroke="#F6C358" stroke-width="4.5" stroke-linecap="round" />
+      <line x1="302" y1="290" x2="320" y2="290" stroke="#F6C358" stroke-width="4.5" stroke-linecap="round" />
+
+      <!-- Upper Body / Crisp White Jubba / Shirt -->
+      <path d="M 268 145 C 262 175, 260 205, 268 230 L 320 230 C 328 205, 325 175, 320 145 Z" 
+            fill="#FFFFFF" stroke="#1E2D1F" stroke-width="4.5" stroke-linejoin="round" />
+      <!-- Saffron / Vada Orange Angavastram draped across torso -->
+      <path d="M 278 145 C 285 180, 302 210, 310 230" stroke="#E08A2E" stroke-width="6" stroke-linecap="round" />
+
+      <!-- Left Arm resting firmly on paddle -->
+      <path d="M 270 152 C 255 170, 248 195, 260 205 C 272 210, 282 195, 276 182" 
+            fill="#FAF6EE" stroke="#1E2D1F" stroke-width="4" stroke-linecap="round" />
+      <!-- Right Arm gripping paddle top -->
+      <path d="M 318 152 C 334 135, 328 105, 308 100 L 300 112" 
+            fill="#FAF6EE" stroke="#1E2D1F" stroke-width="4" stroke-linecap="round" />
+
+      <!-- Neck -->
+      <path d="M 285 145 L 285 130 L 302 130 L 302 145 Z" fill="#FAF6EE" stroke="#1E2D1F" stroke-width="3.5" />
+      
+      <!-- Friendly South Indian Uncle Head -->
+      <circle cx="294" cy="114" r="18" fill="#FAF6EE" stroke="#1E2D1F" stroke-width="4" />
+      
+      <!-- Golden Kadukkan (Traditional South Indian Ear Studs) -->
+      <circle cx="275" cy="116" r="3" fill="#F6C358" stroke="#1E2D1F" stroke-width="1.5" />
+      <circle cx="313" cy="116" r="3" fill="#F6C358" stroke="#1E2D1F" stroke-width="1.5" />
+
+      <!-- Grand South Indian Moustache (Curved Meesai with Pride) -->
+      <path d="M 282 122 C 288 126, 294 124, 294 121 C 294 124, 300 126, 306 122 C 310 118, 305 130, 294 128 C 283 130, 278 118, 282 122 Z" 
+            fill="#1E2D1F" />
+      
+      <!-- Warm Expressive Eyes & Smile -->
+      <circle cx="288" cy="110" r="2.2" fill="#1E2D1F" />
+      <circle cx="300" cy="110" r="2.2" fill="#1E2D1F" />
+      <path d="M 289 130 C 292 133, 296 133, 299 130" stroke="#1E2D1F" stroke-width="2" stroke-linecap="round" />
+
+      <!-- Sacred Forehead Marks: 3 Vibhuti Lines + Red Kumkum Pottu -->
+      <line x1="288" y1="102" x2="300" y2="102" stroke="#E08A2E" stroke-width="2.5" stroke-linecap="round" />
+      <line x1="289" y1="105" x2="299" y2="105" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" />
+      <circle cx="294" cy="104" r="1.5" fill="#B85A1F" />
+
+      <!-- Traditional South Indian Thalapaavu (Turban / Headcloth in Vada Orange) -->
+      <path d="M 276 104 C 274 84, 294 76, 310 80 C 322 84, 320 102, 310 106 C 298 110, 286 108, 276 104 Z" 
+            fill="#E08A2E" stroke="#1E2D1F" stroke-width="4" stroke-linejoin="round" />
+      <!-- Flowing knot fold of turban behind ear -->
+      <path d="M 278 98 C 270 110, 266 128, 270 140" stroke="#E08A2E" stroke-width="3.5" stroke-linecap="round" />
+    </g>
+
+    <!-- Vintage Postal Cancellation Wave Lines (Matching Storefront Decal) -->
+    <g stroke="#1E2D1F" stroke-width="3" stroke-linecap="round" opacity="0.6">
+      <path d="M 465 350 C 480 342, 492 358, 508 350 C 518 345, 528 355, 538 350" />
+      <path d="M 465 362 C 480 354, 492 370, 508 362 C 518 357, 528 367, 538 362" />
+      <path d="M 465 374 C 480 366, 492 382, 508 374 C 518 369, 528 379, 538 374" />
+    </g>
+
+    <!-- Kolam Geometric Pattern (Top Left Rice Flour Art) -->
+    <g fill="#2C3E2D" opacity="0.8">
+      <circle cx="160" cy="120" r="3.5" />
+      <circle cx="180" cy="120" r="3.5" />
+      <circle cx="200" cy="120" r="3.5" />
+      <circle cx="170" cy="110" r="3.5" />
+      <circle cx="190" cy="110" r="3.5" />
+      <circle cx="170" cy="130" r="3.5" />
+      <circle cx="190" cy="130" r="3.5" />
+      <path d="M 180 95 C 160 120, 200 120, 180 145 C 160 120, 200 120, 180 95 Z" stroke="#2C3E2D" stroke-width="2" fill="none" />
+    </g>
+
+    <!-- Little Idly Karama Heritage Seal Ribbon -->
+    <g transform="translate(60, 335)">
+      <rect x="0" y="0" width="180" height="34" rx="17" fill="#1E2D1F" stroke="#E08A2E" stroke-width="2.5" />
+      <text x="90" y="21" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" fill="#F6C358" text-anchor="middle" letter-spacing="1.4">
+        AL KARAMA HERITAGE
+      </text>
+    </g>
+
+  </g>
+</svg>'''
+
+with open('/Users/mac/.gemini/antigravity/scratch/little-idly/assets/branding/outlet_uncle_boat_sketch.svg', 'w') as f:
+    f.write(svg_content)
+
+print('Updated outlet_uncle_boat_sketch.svg with enhanced detail')

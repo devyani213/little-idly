@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" fill="none" stroke="#2C3E2D" stroke-linecap="round" stroke-linejoin="round">
+  <!-- SOUTH INDIAN CHEF STIRRING POT WITH LADLE (Mr. Spring Hero 2 match) -->
+
+  <!-- Aromatic Steam rising from pot -->
+  <path d="M 125 150 Q 115 120 130 90 Q 145 60 135 30" stroke-width="2.5" stroke="#E08A2E" opacity="0.75"/>
+  <path d="M 145 155 Q 160 130 150 100 Q 140 70 155 40" stroke-width="2.5" stroke="#E08A2E" opacity="0.75"/>
+  <path d="M 165 150 Q 180 125 170 95 Q 160 65 175 35" stroke-width="2" stroke="#E08A2E" opacity="0.6"/>
+
+  <!-- Steaming Brass Uruli / Cooking Pot -->
+  <ellipse cx="145" cy="180" rx="55" ry="16" stroke-width="3" fill="#F6C358" fill-opacity="0.25"/>
+  <!-- Bubbling Sambar inside pot -->
+  <ellipse cx="145" cy="180" rx="46" ry="12" stroke-width="1.8" fill="#E08A2E" fill-opacity="0.35"/>
+  <!-- Pot Body -->
+  <path d="M 90 180 Q 90 240 145 250 Q 200 240 200 180" stroke-width="3.2" fill="#FBF8F2"/>
+  <!-- Pot Handles -->
+  <path d="M 88 185 Q 75 190 75 200 Q 75 210 90 215" stroke-width="3"/>
+  <path d="M 202 185 Q 215 190 215 200 Q 215 210 200 215" stroke-width="3"/>
+
+  <!-- Traditional Stove / Kadai Stand -->
+  <path d="M 105 250 L 95 285" stroke-width="3.5"/>
+  <path d="M 185 250 L 195 285" stroke-width="3.5"/>
+  <path d="M 145 252 L 145 285" stroke-width="3"/>
+  <path d="M 90 285 Q 145 292 200 285" stroke-width="3"/>
+
+  <!-- Ladle Stirring inside the Pot -->
+  <line x1="140" y1="180" x2="160" y2="130" stroke-width="4" stroke="#B85A1F"/>
+  <path d="M 132 188 Q 142 195 148 184" stroke-width="3.5" stroke="#B85A1F"/>
+
+  <!-- ==========================================
+       CHEF CHARACTER (Standing to the left/behind, stirring)
+       ========================================== -->
+
+  <!-- Chef Cap / South Indian Turban or Knot -->
+  <path d="M 200 85 C 190 55, 230 40, 245 55 C 260 40, 300 55, 290 85 Z" stroke-width="2.8" fill="#ffffff"/>
+  <ellipse cx="245" cy="85" rx="45" ry="12" stroke-width="2.8" fill="#2C3E2D"/>
+
+  <!-- Chef Face -->
+  <path d="M 215 90 C 215 65, 275 65, 275 90 C 278 120, 268 135, 245 138 C 222 135, 212 120, 215 90 Z" stroke-width="3" fill="#FBF8F2"/>
+  <circle cx="245" cy="88" r="2.2" fill="#B85A1F"/> <!-- Tilak dot -->
+
+  <!-- Smiling Eyes & Cheerful Expression -->
+  <path d="M 228 98 Q 235 94 240 98" stroke-width="2.2"/>
+  <path d="M 250 98 Q 255 94 262 98" stroke-width="2.2"/>
+  <path d="M 245 98 L 245 108" stroke-width="2"/>
+  <!-- Smile & Mustache -->
+  <path d="M 233 112 Q 240 108 245 110 Q 250 108 257 112" stroke-width="2.2"/>
+  <path d="M 238 118 Q 245 125 252 118" stroke-width="2.5"/>
+
+  <!-- Chef Coat / Apron -->
+  <path d="M 225 138 L 205 180 L 195 320 L 295 320 L 285 180 L 265 138 Z" stroke-width="3" fill="#ffffff"/>
+  <!-- Apron Straps & Buttons -->
+  <line x1="225" y1="138" x2="235" y2="180" stroke-width="2"/>
+  <line x1="265" y1="138" x2="255" y2="180" stroke-width="2"/>
+  <circle cx="245" cy="195" r="2.5" fill="#2C3E2D"/>
+  <circle cx="245" cy="225" r="2.5" fill="#2C3E2D"/>
+  <circle cx="245" cy="255" r="2.5" fill="#2C3E2D"/>
+
+  <!-- Arms stirring the ladle -->
+  <!-- Left Hand holding handle of pot -->
+  <path d="M 205 180 Q 185 210 165 200" stroke-width="3.5"/>
+  <!-- Right Arm reaching forward holding the ladle -->
+  <path d="M 225 175 Q 190 150 162 135" stroke-width="3.8"/>
+  <circle cx="160" cy="132" r="5" fill="#FBF8F2" stroke-width="2.5"/> <!-- Hand gripping spoon -->
+
+  <!-- Legs & Shoes -->
+  <path d="M 220 320 L 215 375" stroke-width="3.5"/>
+  <path d="M 270 320 L 275 375" stroke-width="3.5"/>
+  <ellipse cx="210" cy="380" rx="14" ry="6" stroke-width="2.8" fill="#2C3E2D"/>
+  <ellipse cx="280" cy="380" rx="14" ry="6" stroke-width="2.8" fill="#2C3E2D"/>
+
+  <!-- Ground Line -->
+  <line x1="60" y1="385" x2="300" y2="385" stroke-width="2" stroke-dasharray="6 4" opacity="0.4"/>
+</svg>

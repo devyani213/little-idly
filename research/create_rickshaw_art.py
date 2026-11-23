@@ -1,0 +1,51 @@
+svg_rickshaw = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 220" width="100%" height="100%" fill="none">
+  <defs>
+    <filter id="rickshawShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#1E2D1F" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <g filter="url(#rickshawShadow)">
+    <!-- Canvas Roof / Hood -->
+    <path d="M 45 65 C 55 45, 95 38, 140 38 C 175 38, 195 48, 205 72 L 200 105 L 40 102 Z" 
+          fill="#FBF8F2" stroke="#1E2D1F" stroke-width="3.5" stroke-linejoin="round" />
+    <!-- Yellow / Orange Roof Trim -->
+    <path d="M 40 95 L 202 98 L 200 105 L 40 102 Z" fill="#E08A2E" />
+
+    <!-- Windshield Frame & Glass -->
+    <path d="M 52 70 L 105 68 L 105 118 L 50 116 Z" fill="#EAF3F2" stroke="#1E2D1F" stroke-width="3" />
+    <path d="M 112 68 L 165 70 L 162 118 L 112 118 Z" fill="#EAF3F2" stroke="#1E2D1F" stroke-width="3" />
+    <!-- Windshield wiper line -->
+    <line x1="80" y1="112" x2="65" y2="85" stroke="#1E2D1F" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Lower Body & Mudguard in Little Idly Green -->
+    <path d="M 35 115 L 205 118 L 195 165 L 145 168 L 140 185 L 85 185 L 80 168 L 40 165 Z" 
+          fill="#2C3E2D" stroke="#1E2D1F" stroke-width="3.5" stroke-linejoin="round" />
+    <!-- Karama Delivery Emblem -->
+    <rect x="75" y="132" width="70" height="20" rx="4" fill="#FFFFFF" stroke="#1E2D1F" stroke-width="1.5" />
+    <text x="110" y="146" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="800" fill="#E08A2E" text-anchor="middle" letter-spacing="1">
+      KARAMA EXP
+    </text>
+
+    <!-- Chrome Bumper & Headlight -->
+    <rect x="25" y="155" width="20" height="12" rx="3" fill="#FAF6EE" stroke="#1E2D1F" stroke-width="2.5" />
+    <circle cx="35" cy="140" r="10" fill="#F6C358" stroke="#1E2D1F" stroke-width="3" />
+    <circle cx="35" cy="140" r="5" fill="#FFFFFF" />
+
+    <!-- Front & Rear Wheels -->
+    <circle cx="60" cy="180" r="22" fill="#231E1B" stroke="#1E2D1F" stroke-width="3.5" />
+    <circle cx="60" cy="180" r="10" fill="#FAF6EE" stroke="#1E2D1F" stroke-width="2" />
+
+    <circle cx="165" cy="180" r="22" fill="#231E1B" stroke="#1E2D1F" stroke-width="3.5" />
+    <circle cx="165" cy="180" r="10" fill="#FAF6EE" stroke="#1E2D1F" stroke-width="2" />
+
+    <!-- Side Mirror & Handle -->
+    <line x1="42" y1="95" x2="30" y2="85" stroke="#1E2D1F" stroke-width="3" stroke-linecap="round" />
+    <circle cx="28" cy="83" r="5" fill="#FAF6EE" stroke="#1E2D1F" stroke-width="2" />
+  </g>
+</svg>'''
+
+with open('/Users/mac/.gemini/antigravity/scratch/little-idly/assets/branding/outlet_rickshaw_sketch.svg', 'w') as f:
+    f.write(svg_rickshaw)
+
+print('Saved outlet_rickshaw_sketch.svg successfully')
